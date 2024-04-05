@@ -1,9 +1,8 @@
 import random
 import characters
 for characters in range(characters):
-    number_list = ["1","2","3","4","5","6"]
-    random_number = random.choice(number_list)
-    random_number2 = random.choice(number_list)
+    random_number = random.randint(1,6)
+    random_number2 = random.choice(1,6)
     Dice_rolls = []
     start = True
     if start == True:
@@ -13,3 +12,4 @@ for characters in range(characters):
         Dice_rolls.append(random_number2)
     Total = sum(Dice_rolls)
     print(Total)
+
