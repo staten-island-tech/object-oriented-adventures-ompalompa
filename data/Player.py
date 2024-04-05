@@ -1,5 +1,5 @@
 
-class Player:
+class Playeroptions:
     def __init__(self, name, character=None):
         self.name = name
         self.character = character
@@ -46,14 +46,6 @@ class Player:
         else:
             print("You don't own this.")
 
-    def pay_tax(self, tax):
-        self.balance -= tax
-        print(f"You paid ${tax} in taxes.")
-
-    def get_paid(self, paycheck):
-        self.balance += paycheck
-        print(f"You received ${paycheck}.")
-
     def pay_fine(self):
         if self.balance >= 50:
             self.balance -= 50
@@ -62,6 +54,18 @@ class Player:
             print(f"You paid ${50} as fine and have been released.")
         else:
             print("Not enough money.")
+
+    def pay_rent(self, price):
+        if self.balance >= price:
+            self.balance -= price
+            print(f"You paid ${price} for rent")
+
+    def
+
+
+
+
+        
     
     
 
