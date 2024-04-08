@@ -13,3 +13,5 @@ for characters in range(characters):
     Total = sum(Dice_rolls)
     print(Total)
 
+
+# new version in player.py

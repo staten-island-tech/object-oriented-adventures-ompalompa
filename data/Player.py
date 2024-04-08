@@ -1,3 +1,8 @@
+import random
+import time
+import json
+locations = open("./monopolyboard.json", encoding="utf8")
+data = json.load(locations)
 
 class Playeroptions:
     def __init__(self, name, character=None):
@@ -51,21 +56,27 @@ class Playeroptions:
             self.balance -= 50
             self.in_jail = False
             self.turns_in_jail = 0
-            print(f"You paid ${50} as fine and have been released.")
+            print(f"You paid $50 as fine and have been released.")
         else:
             print("Not enough money.")
 
-    def pay_rent(self, price):
-        if self.balance >= price:
-            self.balance -= price
-            print(f"You paid ${price} for rent")
+    def pay_rent(self, rentprice):
+        if self.balance >= rentprice:
+            self.balance -= rentprice
+            print(f"You paid ${rentprice} for rent")
 
-    def
+    def roll_dice(self, location):
+        x = random.randint(1,6)
+        y = random.randint(1,6)
+        z = sum(x,y)
+        self.location = locations('potition#')
+        self.location += z
+        newlocation = self.location + z
 
+        for 
 
-
-
-        
-    
-    
-
+        print("\nYou rolled...")
+        time.sleep(2)
+        print("First roll: {x}")
+        print("Second roll: {y}")
+        print(f"Your new location is {newlocation}")
