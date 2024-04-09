@@ -1,8 +1,8 @@
 import random
 import time
 import json
-locations = open("./monopolyboard.json", encoding="utf8")
-data = json.load(locations)
+with open("./monopolyboard.json", encoding="utf8") as locations:
+    data = json.load(locations)
 
 class Playeroptions:
     def __init__(self, name, character=None):
@@ -13,24 +13,14 @@ class Playeroptions:
 
     def select_character(self, available_characters):
         print("\nCharacters:")
-        print("Top Hat")
-        print("Battleship")
-        print("Scottie Dog")
-        print("Thimble")
-        print("Boot")
-        print("Wheelbarrow")
-        print("Cat")
-        print("Racecar")
-        print("Iron")
-        print("Penguin")
-        print("T-Rex")
-        print("Rubber Ducky")
+        for character in available_characters:
+            print(character.capitalize())
 
         while True:
-            selected_character = input("Select your character: ").strip().lower()
+            selected_character = input("Select your character: ").strip().capitalize()
             if selected_character in available_characters:
                 self.character = selected_character
-                print(f"You've selected {selected_character.capitalize()}.")
+                print(f"You've selected {selected_character}.")
                 break
             else:
                 print("Invalid character. Select from the available characters.")
@@ -65,18 +55,19 @@ class Playeroptions:
             self.balance -= rentprice
             print(f"You paid ${rentprice} for rent")
 
-    def roll_dice(self, location):
-        x = random.randint(1,6)
-        y = random.randint(1,6)
-        z = sum(x,y)
-        self.location = locations('potition#')
+    def roll_dice(self, locations):
+        x = random.randint(1, 6)
+        y = random.randint(1, 6)
+        z = x + y
+        self.location = locations[self.location]['position']
         self.location += z
-        newlocation = self.location + z
-
-        for 
+        new_location = self.location
 
         print("\nYou rolled...")
         time.sleep(2)
-        print("First roll: {x}")
-        print("Second roll: {y}")
-        print(f"Your new location is {newlocation}")
+        print(f"First roll: {x}")
+        print(f"Second roll: {y}")
+        print(f"Your new location is {new_location}")
+
+player = Playeroptions("Player 1")
+player.roll_dice(locations)
