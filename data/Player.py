@@ -1,8 +1,8 @@
 import random
 import time
 import json
-with open("./monopolyboard.json", encoding="utf8") as locations:
-    data = json.load(locations)
+locations = open("./monopolyboard.json", encoding="utf8")
+data = json.load(locations)
 
 class Playeroptions:
     def __init__(self, name, character=None):
