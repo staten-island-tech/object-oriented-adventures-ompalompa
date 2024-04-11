@@ -19,7 +19,9 @@ def creditscreen():
     print("creditscreen")
 
 def rulescreen():
-    print("rulescreen")
+    screen = turtle.Screen()
+    screen.bg(".gif")
+    screen.setup(width=800, height=600)
 
 def mainscreen():
     screen = turtle.Screen()
