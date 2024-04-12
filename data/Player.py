@@ -76,5 +76,38 @@ class Playeroptions:
         print(f"Second roll: {y}")
         print(f"Your new location is {new_location}")
 
-player = Playeroptions("Player 1", "./monopolyboard.json")
-player.roll_dice()
+    def speed_dice(self, dye):
+        continuee = True
+        valuee = 1
+        d = []
+        while continuee == True:
+            if dye == 1:
+                continuee = False
+            d.append(valuee)
+            valuee = valuee + 1
+            dye = dye - 1
+        print(d)
+
+        """x = random.randint(1, 6)
+        y = random.randint(1, 6)
+        w = random.randint(1, 6)
+        z = x + y + w
+        self.location += z
+
+        new_location = None
+        for location in self.data:
+            if self.location == location['position']:
+                new_location = location['name']
+                break
+
+        print("\nYou rolled...")
+        time.sleep(2)
+        print(f"First roll: {x}")
+        print(f"Second roll: {y}")
+        print(f"Third roll: {w}")
+        print(f"Your new location is {new_location}")"""
+
+"""player = Playeroptions("Player 1", "./monopolyboard.json")
+player.roll_dice()"""
+player = Playeroptions
+player.speed_dice(player,9)
