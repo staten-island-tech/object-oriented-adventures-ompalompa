@@ -6,7 +6,7 @@ def creditscreen():
     screen.setup(width=1.0, height=1.0)
     screen.colormode(255)
     screen.bgcolor(105,105,105)
-    # screen.bg(".gif")
+    screen.bgpic("b1.gif")
 
     credits = turtle.Turtle()
     credits.hideturtle()
@@ -41,18 +41,22 @@ def creditscreen():
 
 def rulescreen():
     screen = turtle.Screen()
-    # screen.bg(".gif")
     screen.setup(width=1.0, height=1.0)
     screen.title("Monopoly Game Rules")
     screen.colormode(255)
     screen.bgcolor(105,105,105)
+    screen.bgpic("b1.gif")
 
     rules = turtle.Turtle()
     rules.hideturtle()
     rules.penup()
     rules.color("white")
-    rules.goto(-350, 250)
+    rules.goto(-300, 250)
     rules.pendown()
+
+    button = turtle.Turtle()
+    button.hideturtle
+    button.speed(0)
 
     rulelist = [
         "1. Each player starts with $1500.",
@@ -86,12 +90,27 @@ def rulescreen():
         rules.pendown()
         rules.write(rule, font=("Arial", 14, "normal"))
 
+
     screen.mainloop()
 
 
 
 def gamescreen1():
-    print("hi")
+    screen = turtle.Screen()
+    screen.title("Character Selection")
+    screen.setup(width=1.0, height=1.0)
+    screen.colormode(255)
+    screen.bgcolor(105, 105, 105)
+    screen.bgpic("b1.gif")
+
+    title = turtle.Turtle()
+    title.hideturtle()
+    title.penup()
+    title.goto(0, 300)
+    title.color("white")
+    title.write("Select a Character", align="center", font=("Futura", 64, "bold"))
+
+
 
 def gamescreen2():
     print("hi")
@@ -120,7 +139,7 @@ def mainscreen():
     screen.setup(width=1.0, height=1.0)
     screen.colormode(255)
     screen.bgcolor(105,105,105)
-    # screen.bgpic("bg1.gif")
+    screen.bgpic("b1.gif")
 
     button = turtle.Turtle()
     button.hideturtle()
@@ -137,8 +156,6 @@ def mainscreen():
     def draw_button(label, x, y):
         button.penup()
         button.goto(x, y)
-        button.fillcolor(105,105,105)
-        button.begin_fill()
         for _ in range(2):
             button.forward(200)
             button.right(90)
@@ -146,7 +163,7 @@ def mainscreen():
             button.right(90)
         button.end_fill()
         button.penup()
-        button.goto(x + 100, y - 35)
+        button.goto(x + 100, y - 43)
         button.color("white")
         button.write(label, align="center", font=("Futura", 26, "bold"))
 
@@ -154,7 +171,7 @@ def mainscreen():
         if -100 <= x <= 100: 
             if -25 <= y <= 75: 
                 turtle.clearscreen()
-                gamescreen() 
+                gamescreen1()
             elif -75 <= y <= -25:  
                 turtle.clearscreen()
                 rulescreen() 
