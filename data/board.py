@@ -108,11 +108,11 @@ def rulescreen():
     button.hideturtle()
     button.color("white")
     button.penup()
-    button.goto(0, -250) 
+    button.goto(300, -300) 
     button.write("Back", align="center", font=("Arial", 20, "bold"))
 
     def on_screen_click(x, y):
-        if -40 <= x <= 40 and -265 <= y <= -235:  
+        if 260 <= x <= 340 and -315 <= y <= -285:  
             back_button()
             
     screen.onscreenclick(on_screen_click)
@@ -123,10 +123,7 @@ def rulescreen():
 def gamescreen1():
     screen = turtle.Screen()
     screen.title("Character Selection")
-    screen.setup(width=1.0, height=1.0)
-    screen.colormode(255)
-    screen.bgcolor(105, 105, 105)
-    screen.bgpic("b1.gif")
+    screen1setup()
 
     title = turtle.Turtle()
     title.hideturtle()
@@ -190,17 +187,17 @@ def mainscreen():
         button.write(label, align="center", font=("Futura", 26, "bold"))
 
     def on_screen_click(x, y):
-        if -100 <= x <= 100: 
-            if -25 <= y <= 75: 
+        if -200 <= x <= 220: 
+            if 40 <= y <= 100: 
                 turtle.clearscreen()
                 gamescreen1()
-            elif -75 <= y <= -25:  
+            elif -40 <= y <= 30:  
                 turtle.clearscreen()
                 rulescreen() 
-            elif -175 <= y <= -125: 
+            elif -140 <= y <= -100: 
                 turtle.clearscreen()
                 creditscreen() 
-            elif -275 <= y <= -225:  
+            elif -225 <= y <= -200:  
                 turtle.bye()
 
     screen.onscreenclick(on_screen_click)
