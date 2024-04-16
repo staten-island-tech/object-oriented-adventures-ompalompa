@@ -86,26 +86,12 @@ class Playeroptions:
             d.append(valuee)
             valuee = valuee + 1
             dye = dye - 1
-        print(d)
+        z = 0
+        for x in d:
+            x = random.randint(1,6)
+            z = z + x
 
-        """x = random.randint(1, 6)
-        y = random.randint(1, 6)
-        w = random.randint(1, 6)
-        z = x + y + w
-        self.location += z
 
-        new_location = None
-        for location in self.data:
-            if self.location == location['position']:
-                new_location = location['name']
-                break
-
-        print("\nYou rolled...")
-        time.sleep(2)
-        print(f"First roll: {x}")
-        print(f"Second roll: {y}")
-        print(f"Third roll: {w}")
-        print(f"Your new location is {new_location}")"""
 
 """player = Playeroptions("Player 1", "./monopolyboard.json")
 player.roll_dice()"""
