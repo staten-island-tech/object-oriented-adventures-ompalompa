@@ -1,12 +1,20 @@
 import turtle
 
-def creditscreen():
+def back_button():
+    turtle.clearscreen()  
+    mainscreen()
+
+def screen1setup():
     screen = turtle.Screen()
-    screen.title("Monopoly Credits")
     screen.setup(width=1.0, height=1.0)
     screen.colormode(255)
     screen.bgcolor(105,105,105)
     screen.bgpic("b1.gif")
+
+def creditscreen():
+    screen = turtle.Screen()
+    screen.title("Monopoly Credits")
+    screen1setup()
 
     credits = turtle.Turtle()
     credits.hideturtle()
@@ -37,15 +45,25 @@ def creditscreen():
         credits.pendown()
         credits.write(credit, font=("Arial", 24, "normal"))
 
+    button = turtle.Turtle()
+    button.hideturtle()
+    button.color("white")
+    button.penup()
+    button.goto(0, -250) 
+    button.write("Back", align="center", font=("Arial", 20, "bold"))
+
+    def on_screen_click(x, y):
+        if -40 <= x <= 40 and -265 <= y <= -235:  
+            back_button()
+
+    screen.onscreenclick(on_screen_click)
+
     screen.mainloop()
 
 def rulescreen():
     screen = turtle.Screen()
-    screen.setup(width=1.0, height=1.0)
     screen.title("Monopoly Game Rules")
-    screen.colormode(255)
-    screen.bgcolor(105,105,105)
-    screen.bgpic("b1.gif")
+    screen1setup()
 
     rules = turtle.Turtle()
     rules.hideturtle()
@@ -53,10 +71,6 @@ def rulescreen():
     rules.color("white")
     rules.goto(-300, 250)
     rules.pendown()
-
-    button = turtle.Turtle()
-    button.hideturtle
-    button.speed(0)
 
     rulelist = [
         "1. Each player starts with $1500.",
@@ -90,7 +104,18 @@ def rulescreen():
         rules.pendown()
         rules.write(rule, font=("Arial", 14, "normal"))
 
+    button = turtle.Turtle()
+    button.hideturtle()
+    button.color("white")
+    button.penup()
+    button.goto(0, -250) 
+    button.write("Back", align="center", font=("Arial", 20, "bold"))
 
+    def on_screen_click(x, y):
+        if -40 <= x <= 40 and -265 <= y <= -235:  
+            back_button()
+            
+    screen.onscreenclick(on_screen_click)
     screen.mainloop()
 
 
@@ -136,10 +161,7 @@ def bankscreen():
 def mainscreen():
     screen = turtle.Screen()
     screen.title("Monopoly Main Screen")
-    screen.setup(width=1.0, height=1.0)
-    screen.colormode(255)
-    screen.bgcolor(105,105,105)
-    screen.bgpic("b1.gif")
+    screen1setup()
 
     button = turtle.Turtle()
     button.hideturtle()
