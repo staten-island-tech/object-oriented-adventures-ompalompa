@@ -44,3 +44,6 @@ class Movies:
         for movie in self.data:
             if genre in [g.lower() for g in movie['genres']]:
                 print(movie['title'])
+
+player = Movies("./monopolyboard.json")
+player.genre_search()
