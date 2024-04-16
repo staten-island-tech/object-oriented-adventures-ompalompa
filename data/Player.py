@@ -87,10 +87,16 @@ class Playeroptions:
             valuee = valuee + 1
             dye = dye - 1
         z = 0
+        zz = []
         for x in d:
             x = random.randint(1,6)
-            z = z + x
-
+            z = x
+            zz.append(z)
+        print(f"You rolled these numbers {zz}!")
+        l = 0
+        for w in zz:
+            l = l + w
+        print(l)
 
 
 """player = Playeroptions("Player 1", "./monopolyboard.json")
