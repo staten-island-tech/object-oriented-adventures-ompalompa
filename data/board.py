@@ -140,34 +140,27 @@ class board:
         characters.goto(-300, 250)
 
         characterlist = [
-            "1. Each player starts with $1500.",
-            "2. Roll two six-sided dice to move around the board.",
-            "3. Buy properties, build houses and hotels, collect rent.",
-            "4. If you land on or pass 'GO', collect $200.",
-            "5. Land on other players' properties to pay them rent; the amount depends on the development of the property.",
-            "6. Draw cards when you land on Chance and Community Chest.",
-            "7. Avoid going to Jail. You cannot collect rent in Jail unless you have a Get Out of Jail Free card or pay $50.",
-            "8. Bankruptcy ends the game for you; the last player standing wins.",
-            "9. Houses and hotels can be sold back to the bank for half the purchase price.",
-            "10. Properties can be mortgaged to the bank for loan money.",
-            "11. Use strategic trades to acquire monopolies and build developments.",
-            "12. The game continues until all but one player has gone bankrupt.",
-            "13. Players may form agreements during trades, including selling properties and renting deals.",
-            "14. The Utilities and Railroads have special rules for rent calculation based on dice rolls.",
-            "15. No player can borrow money from another player."
+            "Battleship",
+            "Race Car",
+            "Top Hat",
+            "Scottish Terrier",
+            "Cat",
+            "Penguin",
+            "Rubber Ducky",
+            "Thimble"
         ]
 
-        characters.goto(-350, 220)
+        characters.goto(-350, -220)
         characters.pendown()
 
-        for rule in rulelist:
-            rules.penup()
-            rules.forward(0)
-            rules.right(90)
-            rules.forward(30)
-            rules.right(-90)
-            rules.pendown()
-            rules.write(rule, font=("Arial", 14, "normal"))
+        for character in characterlist:
+            characters.pendown()
+            characters.forward(287)
+            characters.right(90)
+            characters.forward(50)
+            characters.right(-90)
+            characters.pendown()
+            characters.write(character, font=("Arial", 24, "normal"))
 
         button = turtle.Turtle()
         button.hideturtle()
@@ -183,7 +176,7 @@ class board:
 
         select = turtle
         select.textinput("Character Selection", "Name of chosen character:                                             ")
-
+        screen.mainloop()
 
 
     def gamescreen2():
