@@ -1,5 +1,4 @@
 from tkinter import Tk, Canvas, Button
-from PIL import Image, ImageTk
 
 def setup():
     top = Tk()
