@@ -151,11 +151,10 @@ class board:
         ]
 
         characters.goto(-350, -220)
-        characters.pendown()
+        characters.penup()
 
         for character in characterlist:
-            characters.pendown()
-            characters.forward(287)
+            characters.forward(100)
             characters.right(90)
             characters.forward(50)
             characters.right(-90)
