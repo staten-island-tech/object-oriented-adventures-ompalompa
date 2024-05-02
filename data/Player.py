@@ -99,7 +99,5 @@ class Playeroptions:
         print(l)
 
 
-"""player = Playeroptions("Player 1", "./monopolyboard.json")
-player.roll_dice()"""
-player = Playeroptions
-player.speed_dice(player,9)
+player = Playeroptions("Player 1", "./monopolyboard.json")
+player.roll_dice()
