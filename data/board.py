@@ -26,9 +26,7 @@ class board:
 
         creditlist = [
             "Jonathan Ou",
-            "",
             "Alvin Huang",
-            "",
             "Aaron Li"
         ]
 
@@ -41,7 +39,7 @@ class board:
             credits.penup()
             credits.forward(0)
             credits.right(90)
-            credits.forward(30)
+            credits.forward(120)
             credits.right(-90)
             credits.pendown()
             credits.write(credit, font=("Arial", 24, "normal"))
@@ -120,8 +118,58 @@ class board:
         screen.mainloop()
 
 
-
     def gamescreen1():
+        screen = turtle.Screen()
+        screen.title("Game Selection")
+        board.scren1setup()
+
+        button = turtle.Turtle()
+        button.hideturtle()
+        button.speed(0)
+        
+        title = turtle.Turtle()
+        title.hideturtle()
+        title.penup()
+        title.goto(0, 300)
+        title.color("white")
+        title.write("Select a Game Type", align="center", font=("Futura", 64, "bold"))
+
+        def draw_button(label, x, y):
+            button.penup()
+            button.goto(x, y)
+            for _ in range(2):
+                button.forward(200)
+                button.right(90)
+                button.forward(50)
+                button.right(90)
+            button.end_fill()
+            button.penup()
+            button.goto(x + 100, y - 43)
+            button.color("white")
+            button.write(label, align="center", font=("Futura", 26, "bold"))
+
+        def on_screen_click(x, y):
+            if -200 <= x <= 220: 
+                if 40 <= y <= 100: 
+                    turtle.clearscreen()
+                    board.gamescreen2()
+                elif -40 <= y <= 30:  
+                    turtle.clearscreen()
+                    board.gamescreen2() 
+                elif 260 <= x <= 340 and -315 <= y <= -285:  
+                    board.back_button()
+
+        screen.onscreenclick(on_screen_click)
+
+        draw_button("Singleplayer", -100, 100)
+        draw_button("Multiplayer", -100, 0)
+        draw_button("Back", 300, -300)
+        screen.mainloop()
+
+
+
+
+    def gamescreen2():
         screen = turtle.Screen()
         screen.title("Character Selection")
         board.screen1setup()
@@ -178,13 +226,14 @@ class board:
         screen.mainloop()
 
 
-    def gamescreen2():
-        print("hi")
-
     def gamescreen3():
         print("hi")
 
-    def gamescreen():
+    def gamescreen4():
+        print("hi")
+
+
+    def gamescreen5():
         screen = turtle.Screen()
         screen.title("Monopoly Game")
         screen.setup(width=810, height=810)
