@@ -121,7 +121,7 @@ class board:
     def gamescreen1():
         screen = turtle.Screen()
         screen.title("Game Selection")
-        board.scren1setup()
+        board.screen1setup()
 
         button = turtle.Turtle()
         button.hideturtle()
