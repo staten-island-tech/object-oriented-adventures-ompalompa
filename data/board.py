@@ -16,7 +16,6 @@ class board:
         screen = turtle.Screen()
         screen.title("Monopoly Credits")
         board.screen1setup()
-
         credits = turtle.Turtle()
         credits.hideturtle()
         credits.penup()

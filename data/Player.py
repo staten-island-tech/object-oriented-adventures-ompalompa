@@ -77,14 +77,18 @@ class Playeroptions:
         print(f"Your new location is {new_location}")
 
     def income_tax(self):
-        landed = False
-        print("Do you want to pay a fine of $200, or pay 10% of your total networth?")
-        choices = int(input("Choices: 1 ($200), or 2 (10%): "))
-        if choices == '1':
-            self.balance - 200
-        if choices == '2':
-            self.balance = (self.balance)*0.9
+        landed = True
+        while landed == True:
+            print("Do you want to pay a fine of $200, or pay 10% of your total networth?")
+            choices = int(input("Choices: 1 ($200), or 2 (10%): "))
+            if choices == '1':
+                self.balance - 200
+                print(f"Your current balance is ${self.balance}")
+            if choices == '2':
+                self.balance = (self.balance)*0.9
+                print(f"Your current balance is ${self.balance}")
 
 
 player = Playeroptions("Player 1", "./monopolyboard.json")
 player.roll_dice()
+player.income_tax
