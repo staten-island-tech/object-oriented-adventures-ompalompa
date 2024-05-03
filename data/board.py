@@ -151,9 +151,11 @@ class board:
         def on_screen_click(x, y):
             if -200 <= x <= 220: 
                 if 40 <= y <= 100: 
+                    gt = board.gamescreen4()
                     turtle.clearscreen()
                     board.gamescreen2()
                 elif -40 <= y <= 30:  
+                    gt = board.gamescreen5()
                     turtle.clearscreen()
                     board.gamescreen2() 
                 elif 260 <= x <= 340 and -315 <= y <= -285:  
@@ -185,29 +187,42 @@ class board:
         characters.hideturtle()
         characters.penup()
         characters.color("white")
-        characters.goto(-300, 250)
 
-        characterlist = [
+        characterlist1 = [
             "Battleship",
             "Race Car",
             "Top Hat",
-            "Scottish Terrier",
+            "Scottish Terrier"
+        ]
+
+        characterlist2 = [
             "Cat",
             "Penguin",
             "Rubber Ducky",
             "Thimble"
         ]
 
-        characters.goto(-350, -220)
+        characters.goto(-900, 220)
         characters.penup()
 
-        for character in characterlist:
-            characters.forward(100)
+        for character in characterlist1:
+            characters.forward(300)
             characters.right(90)
-            characters.forward(50)
+            characters.forward(0)
             characters.right(-90)
-            characters.pendown()
+            characters.penup()
             characters.write(character, font=("Arial", 24, "normal"))
+
+        characters.goto(-900, -250)
+
+        for character in characterlist2:
+            characters.forward(300)
+            characters.right(90)
+            characters.forward(0)
+            characters.right(-90)
+            characters.penup()
+            characters.write(character, font=("Arial", 24, "normal"))
+
 
         button = turtle.Turtle()
         button.hideturtle()
@@ -217,13 +232,39 @@ class board:
         button.write("Back", align="center", font=("Arial", 20, "bold"))
 
         def on_screen_click(x, y):
-            if 260 <= x <= 340 and -315 <= y <= -285:  
-                board.back_button()
+            board.gamescreen1.gt()
+
+            if -950 <= y <= 900: 
+                if -950 <= x <= 100: 
+                    turtle.clearscreen()
+                    gt()
+                elif -40 <= x <= 30:  
+                    turtle.clearscreen()
+                    gt()
+                elif -140 <= x <= -100: 
+                    turtle.clearscreen()
+                    x
+                elif -225 <= x <= -200:  
+                    turtle.clearscreen()
+                    x
+                elif -40 <= x <= 30:  
+                    turtle.clearscreen()
+                    x
+                elif -140 <= x <= -100: 
+                    turtle.clearscreen()
+                    x
+                elif -225 <= x <= -200:  
+                    turtle.clearscreen()
+                    x
+                elif 260 <= x <= 340:
+                    turtle.clearscreen()
+                    x
+                elif 260 <= x <= 340 and -315 <= y <= -285:  
+                    board.back_button()
+
         screen.onscreenclick(on_screen_click)
 
-        select = turtle
-        select.textinput("Character Selection", "Name of chosen character:                                             ")
-        screen.mainloop()
+        turtle.mainloop()
 
 
     def gamescreen3():
