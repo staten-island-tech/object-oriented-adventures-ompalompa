@@ -91,4 +91,7 @@ class Playeroptions:
 
 player = Playeroptions("Player 1", "./monopolyboard.json")
 player.roll_dice()
+<<<<<<< HEAD
 player.income_tax
+=======
+>>>>>>> 72f4d70e299e59486e348e8a0a37b4c318089029
