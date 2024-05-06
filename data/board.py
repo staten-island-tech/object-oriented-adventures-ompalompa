@@ -10,7 +10,7 @@ class board:
         screen.setup(width=1.0, height=1.0)
         screen.colormode(255)
         screen.bgcolor(105,105,105)
-        screen.bgpic("b1.gif")
+        screen.bgpic("b1.png")
 
     def creditscreen():
         screen = turtle.Screen()
