@@ -162,6 +162,8 @@ class board:
                     gt = board.gamescreen5()
                 elif 260 <= x <= 340 and -315 <= y <= -285:  
                     board.back_button()
+                    
+                    
         
         screen.onscreenclick(on_screen_click)
 
