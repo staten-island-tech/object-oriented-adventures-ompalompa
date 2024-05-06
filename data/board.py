@@ -118,7 +118,7 @@ class board:
         screen.mainloop()
 
 
-    def gamescreen1():
+    def gameselection():
         screen = turtle.Screen()
         screen.title("Game Selection")
         board.screen1setup()
@@ -147,20 +147,22 @@ class board:
             button.goto(x + 100, y - 43)
             button.color("white")
             button.write(label, align="center", font=("Futura", 26, "bold"))
+            gt = None
 
         def on_screen_click(x, y):
+            global gt
             if -200 <= x <= 220: 
                 if 40 <= y <= 100: 
+                    turtle.clearscreen()
+                    board.characterselection()
                     gt = board.gamescreen4()
-                    turtle.clearscreen()
-                    board.gamescreen2()
                 elif -40 <= y <= 30:  
-                    gt = board.gamescreen5()
                     turtle.clearscreen()
-                    board.gamescreen2() 
+                    board.characterselection()
+                    gt = board.gamescreen5()
                 elif 260 <= x <= 340 and -315 <= y <= -285:  
                     board.back_button()
-
+        
         screen.onscreenclick(on_screen_click)
 
         draw_button("Singleplayer", -100, 100)
@@ -171,10 +173,11 @@ class board:
 
 
 
-    def gamescreen2():
+    def characterselection():
         screen = turtle.Screen()
         screen.title("Character Selection")
         board.screen1setup()
+        ct = None
 
         title = turtle.Turtle()
         title.hideturtle()
@@ -232,46 +235,54 @@ class board:
         button.write("Back", align="center", font=("Arial", 20, "bold"))
 
         def on_screen_click(x, y):
-            board.gamescreen1.gt()
-
+            global ct
             if -950 <= y <= 900: 
                 if -950 <= x <= 100: 
                     turtle.clearscreen()
-                    gt()
+                    board.gt()
+                    ct = 'battleship'
                 elif -40 <= x <= 30:  
                     turtle.clearscreen()
-                    gt()
+                    board.gt()
+                    ct = 'race car'
                 elif -140 <= x <= -100: 
                     turtle.clearscreen()
-                    x
+                    board.gt()
+                    ct = 'top hat'
                 elif -225 <= x <= -200:  
                     turtle.clearscreen()
-                    x
-                elif -40 <= x <= 30:  
-                    turtle.clearscreen()
-                    x
-                elif -140 <= x <= -100: 
-                    turtle.clearscreen()
-                    x
-                elif -225 <= x <= -200:  
-                    turtle.clearscreen()
-                    x
-                elif 260 <= x <= 340:
-                    turtle.clearscreen()
-                    x
-                elif 260 <= x <= 340 and -315 <= y <= -285:  
-                    board.back_button()
+                    board.gt()
+                    ct = 'scottish terrier'
+                elif -950 <= y <= 900:
+                    if -40 <= x <= 30:  
+                        turtle.clearscreen()
+                        board.gt()
+                        ct = 'cat'
+                    elif -140 <= x <= -100: 
+                        turtle.clearscreen()
+                        board.gt()
+                        ct = 'penguin'
+                    elif -225 <= x <= -200:  
+                        turtle.clearscreen()
+                        board.gt()
+                        ct = 'rubber ducky'
+                    elif 260 <= x <= 340:
+                        turtle.clearscreen()
+                        board.gt()
+                        ct = 'thimble'
+                    elif 260 <= x <= 340 and -315 <= y <= -285:  
+                        board.back_button()
 
         screen.onscreenclick(on_screen_click)
 
         turtle.mainloop()
 
 
-    def gamescreen3():
-        print("hi")
+    def namepick():
+        print("hi3")
 
     def gamescreen4():
-        print("hi")
+        print("hi4")
 
 
     def gamescreen5():
@@ -324,7 +335,7 @@ class board:
             if -200 <= x <= 220: 
                 if 40 <= y <= 100: 
                     turtle.clearscreen()
-                    board.gamescreen1()
+                    board.gameselection()
                 elif -40 <= y <= 30:  
                     turtle.clearscreen()
                     board.rulescreen() 
