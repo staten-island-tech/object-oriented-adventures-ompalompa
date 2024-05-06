@@ -76,29 +76,6 @@ class Playeroptions:
         print(f"Second roll: {y}")
         print(f"Your new location is {new_location}")
 
-<<<<<<< HEAD
-    def speed_dice(self, dye):
-        continuee = True
-        valuee = 1
-        d = []
-        while continuee == True:
-            if dye == 1:
-                continuee = False
-            d.append(valuee)
-            valuee = valuee + 1
-            dye = dye - 1
-        z = 0
-        zz = []
-        for x in d:
-            x = random.randint(1,6)
-            z = x
-            zz.append(z)
-        print(f"You rolled these numbers {zz}!")
-        l = 0
-        for w in zz:
-            l = l + w
-        print(l)
-=======
     def income_tax(self):
         landed = False
         print("Do you want to pay a fine of $200, or pay 10% of your total networth?")
@@ -107,7 +84,6 @@ class Playeroptions:
             self.balance - 200
         if choices == '2':
             self.balance = (self.balance)*0.9
->>>>>>> Characters
 
 
 player = Playeroptions("Player 1", "./monopolyboard.json")
