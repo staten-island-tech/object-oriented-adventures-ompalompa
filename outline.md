@@ -18,3 +18,5 @@ def __init__(self, name, data_path, character=None):
 player = Playeroptions("Player 1", "./monopolyboard.json")
 player.roll_dice()
 ```
+
+get Path Intellisense
