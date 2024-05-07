@@ -1,8 +1,9 @@
 import turtle
-class board:
+
+class screens:
     def back_button():
         turtle.clearscreen()  
-        board.mainscreen()
+        screens.mainscreen()
 
     def screen1setup():
         screen = turtle.Screen()
@@ -14,7 +15,7 @@ class board:
     def creditscreen():
         screen = turtle.Screen()
         screen.title("Monopoly Credits")
-        board.screen1setup()
+        screens.screen1setup()
 
         credits = turtle.Turtle()
         credits.hideturtle()
@@ -52,7 +53,7 @@ class board:
 
         def on_screen_click(x, y):
             if -40 <= x <= 40 and -265 <= y <= -235:  
-                board.back_button()
+                screens.back_button()
 
         screen.onscreenclick(on_screen_click)
 
@@ -61,7 +62,7 @@ class board:
     def rulescreen():
         screen = turtle.Screen()
         screen.title("Monopoly Game Rules")
-        board.screen1setup()
+        screens.screen1setup()
 
         rules = turtle.Turtle()
         rules.hideturtle()
@@ -111,7 +112,7 @@ class board:
 
         def on_screen_click(x, y):
             if 260 <= x <= 340 and -315 <= y <= -285:  
-                board.back_button()
+                screens.back_button()
                 
         screen.onscreenclick(on_screen_click)
         screen.mainloop()
@@ -119,7 +120,7 @@ class board:
     def gameselection():
         screen = turtle.Screen()
         screen.title("Game Selection")
-        board.screen1setup()
+        screens.screen1setup()
 
         button = turtle.Turtle()
         button.hideturtle()
@@ -150,12 +151,12 @@ class board:
             if -200 <= x <= 220: 
                 if 40 <= y <= 100: 
                     turtle.clearscreen()
-                    board.characterselection()
+                    screens.characterselection()
                 elif -40 <= y <= 30:  
                     turtle.clearscreen()
-                    board.characterselection()
+                    screens.characterselection()
                 elif 260 <= x <= 340 and -315 <= y <= -285:  
-                    board.back_button()
+                    screens.back_button()
         
         screen.onscreenclick(on_screen_click)
 
@@ -168,9 +169,10 @@ class board:
 
     def characterselection():
         global ct
+        ct = None
         screen = turtle.Screen()
         screen.title("Character Selection")
-        board.screen1setup()
+        screens.screen1setup()
 
         title = turtle.Turtle()
         title.hideturtle()
@@ -183,38 +185,38 @@ class board:
             global ct
             if -620 <= x <= -450 and 200 <= y <= 260: 
                 turtle.clearscreen()
-                board.gamescreen4()
+                screens.gamescreen4()
                 ct = 'battleship'
             elif -320 <= x <= -150 and 200 <= y <= 260:  
                 turtle.clearscreen()
-                board.gamescreen4()
+                screens.gamescreen4()
                 ct = 'race car'
             elif -20 <= x <= 150 and 200 <= y <= 260: 
                 turtle.clearscreen()
-                board.gamescreen4()
+                screens.gamescreen4()
                 ct = 'top hat'
             elif 280 <= x <= 450 and 200 <= y <= 260:  
                 turtle.clearscreen()
-                board.gamescreen4()
+                screens.gamescreen4()
                 ct = 'scottish terrier'
             elif -620 <= x <= -450 and -220 <= y <= -160:  
                 turtle.clearscreen()
-                board.gamescreen5()
+                screens.gamescreen5()
                 ct = 'cat'
             elif -320 <= x <= -150 and -220 <= y <= -160: 
                 turtle.clearscreen()
-                board.gamescreen5()
+                screens.gamescreen5()
                 ct = 'penguin'
             elif -20 <= x <= 150 and -220 <= y <= -160:  
                 turtle.clearscreen()
-                board.gamescreen5()
+                screens.gamescreen5()
                 ct = 'rubber ducky'
             elif 280 <= x <= 450 and -220 <= y <= -160:
                 turtle.clearscreen()
-                board.gamescreen5()
+                screens.gamescreen5()
                 ct = "thimble"
             elif 260 <= x <= 340 and -315 <= y <= -285:  
-                board.back_button()
+                screens.back_button()
 
         screen.onscreenclick(on_screen_click)
         characters = turtle.Turtle()
@@ -263,13 +265,21 @@ class board:
         button.goto(300, -300) 
         button.write("Back", align="center", font=("Arial", 20, "bold"))
 
-        print(board.ct)
-
         turtle.mainloop()
 
-
     def namepick():
-        print("hi3")
+        screen = turtle.Screen()
+        screen.title("Monopoly Name")
+        screens.screen1setup()
+
+        title = turtle.Turtle()
+        title.hideturtle()
+        title.penup()
+        title.goto(0, 150)
+        title.color("white")
+        title.write("Enter A Name", align="center", font=("Futura", 64, "bold"))
+
+        name = screen.textinput("NIM", "Enter Username:                                                                                                          ")
 
     def gamescreen4():
         print("hi4")
@@ -293,7 +303,7 @@ class board:
     def mainscreen():
         screen = turtle.Screen()
         screen.title("Monopoly Main Screen")
-        board.screen1setup()
+        screens.screen1setup()
 
         button = turtle.Turtle()
         button.hideturtle()
@@ -324,13 +334,13 @@ class board:
             if -200 <= x <= 220: 
                 if 40 <= y <= 100: 
                     turtle.clearscreen()
-                    board.gameselection()
+                    screens.gameselection()
                 elif -40 <= y <= 30:  
                     turtle.clearscreen()
-                    board.rulescreen() 
+                    screens.rulescreen() 
                 elif -140 <= y <= -100: 
                     turtle.clearscreen()
-                    board.creditscreen() 
+                    screens.creditscreen() 
                 elif -225 <= y <= -200:  
                     turtle.bye()
 
@@ -343,4 +353,3 @@ class board:
 
         turtle.mainloop()
 
-board.characterselection()
