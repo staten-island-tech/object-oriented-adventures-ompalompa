@@ -293,7 +293,7 @@ class screens:
         screen.bgcolor(208, 239, 229)
 
 
-        screen.bgpic("board.gif")
+        screen.bgpic("data/images/board.gif")
 
         turtle.done()
 
