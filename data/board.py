@@ -1,6 +1,11 @@
 import turtle
 
 class screens:
+    ct = None
+    @classmethod
+    def set_ct(cls, value):  
+        cls.ct = value
+
     def back_button():
         turtle.clearscreen()  
         screens.mainscreen()
@@ -165,8 +170,6 @@ class screens:
         draw_button("Back", 300, -300)
         screen.mainloop()
 
-    ct = None
-
     def characterselection():
         global ct
         ct = None
@@ -186,35 +189,35 @@ class screens:
             if -620 <= x <= -450 and 200 <= y <= 260: 
                 turtle.clearscreen()
                 screens.gamescreen4()
-                ct = 'battleship'
+                screens.set_ct('battleship')
             elif -320 <= x <= -150 and 200 <= y <= 260:  
                 turtle.clearscreen()
                 screens.gamescreen4()
-                ct = 'race car'
+                screens.set_ct('race car')
             elif -20 <= x <= 150 and 200 <= y <= 260: 
                 turtle.clearscreen()
                 screens.gamescreen4()
-                ct = 'top hat'
+                screens.set_ct('top hat')
             elif 280 <= x <= 450 and 200 <= y <= 260:  
                 turtle.clearscreen()
                 screens.gamescreen4()
-                ct = 'scottish terrier'
+                screens.set_ct('scottish terrier')
             elif -620 <= x <= -450 and -220 <= y <= -160:  
                 turtle.clearscreen()
                 screens.gamescreen5()
-                ct = 'cat'
+                screens.set_ct('cat')
             elif -320 <= x <= -150 and -220 <= y <= -160: 
                 turtle.clearscreen()
                 screens.gamescreen5()
-                ct = 'penguin'
+                screens.set_ct('penguin')
             elif -20 <= x <= 150 and -220 <= y <= -160:  
                 turtle.clearscreen()
                 screens.gamescreen5()
-                ct = 'rubber ducky'
+                screens.set_ct('rubber ducky')
             elif 280 <= x <= 450 and -220 <= y <= -160:
                 turtle.clearscreen()
                 screens.gamescreen5()
-                ct = "thimble"
+                screens.set_ct('thimble')
             elif 260 <= x <= 340 and -315 <= y <= -285:  
                 screens.back_button()
 
@@ -352,4 +355,3 @@ class screens:
         draw_button("Quit", -100, -200)
 
         turtle.mainloop()
-
