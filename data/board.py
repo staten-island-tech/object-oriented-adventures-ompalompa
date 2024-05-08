@@ -1,5 +1,4 @@
 import turtle
-
 class board:
     def back_button():
         turtle.clearscreen()  
@@ -10,7 +9,7 @@ class board:
         screen.setup(width=1.0, height=1.0)
         screen.colormode(255)
         screen.bgcolor(105,105,105)
-        screen.bgpic("b1.gif")
+        screen.bgpic('data/images/b1.png')
 
     def creditscreen():
         screen = turtle.Screen()
@@ -117,7 +116,6 @@ class board:
         screen.onscreenclick(on_screen_click)
         screen.mainloop()
 
-
     def gameselection():
         screen = turtle.Screen()
         screen.title("Game Selection")
@@ -147,19 +145,15 @@ class board:
             button.goto(x + 100, y - 43)
             button.color("white")
             button.write(label, align="center", font=("Futura", 26, "bold"))
-            gt = None
 
         def on_screen_click(x, y):
-            global gt
             if -200 <= x <= 220: 
                 if 40 <= y <= 100: 
                     turtle.clearscreen()
                     board.characterselection()
-                    gt = board.gamescreen4()
                 elif -40 <= y <= 30:  
                     turtle.clearscreen()
                     board.characterselection()
-                    gt = board.gamescreen5()
                 elif 260 <= x <= 340 and -315 <= y <= -285:  
                     board.back_button()
                     
@@ -172,14 +166,13 @@ class board:
         draw_button("Back", 300, -300)
         screen.mainloop()
 
-
-
+    ct = None
 
     def characterselection():
+        global ct
         screen = turtle.Screen()
         screen.title("Character Selection")
         board.screen1setup()
-        ct = None
 
         title = turtle.Turtle()
         title.hideturtle()
@@ -188,6 +181,44 @@ class board:
         title.color("white")
         title.write("Select a Character", align="center", font=("Futura", 64, "bold"))
 
+        def on_screen_click(x, y):
+            global ct
+            if -620 <= x <= -450 and 200 <= y <= 260: 
+                turtle.clearscreen()
+                board.gamescreen4()
+                ct = 'battleship'
+            elif -320 <= x <= -150 and 200 <= y <= 260:  
+                turtle.clearscreen()
+                board.gamescreen4()
+                ct = 'race car'
+            elif -20 <= x <= 150 and 200 <= y <= 260: 
+                turtle.clearscreen()
+                board.gamescreen4()
+                ct = 'top hat'
+            elif 280 <= x <= 450 and 200 <= y <= 260:  
+                turtle.clearscreen()
+                board.gamescreen4()
+                ct = 'scottish terrier'
+            elif -620 <= x <= -450 and -220 <= y <= -160:  
+                turtle.clearscreen()
+                board.gamescreen5()
+                ct = 'cat'
+            elif -320 <= x <= -150 and -220 <= y <= -160: 
+                turtle.clearscreen()
+                board.gamescreen5()
+                ct = 'penguin'
+            elif -20 <= x <= 150 and -220 <= y <= -160:  
+                turtle.clearscreen()
+                board.gamescreen5()
+                ct = 'rubber ducky'
+            elif 280 <= x <= 450 and -220 <= y <= -160:
+                turtle.clearscreen()
+                board.gamescreen5()
+                ct = "thimble"
+            elif 260 <= x <= 340 and -315 <= y <= -285:  
+                board.back_button()
+
+        screen.onscreenclick(on_screen_click)
         characters = turtle.Turtle()
         characters.hideturtle()
         characters.penup()
@@ -200,14 +231,7 @@ class board:
             "Scottish Terrier"
         ]
 
-        characterlist2 = [
-            "Cat",
-            "Penguin",
-            "Rubber Ducky",
-            "Thimble"
-        ]
-
-        characters.goto(-900, 220)
+        characters.goto(-900, 270)
         characters.penup()
 
         for character in characterlist1:
@@ -217,6 +241,12 @@ class board:
             characters.right(-90)
             characters.penup()
             characters.write(character, font=("Arial", 24, "normal"))
+        characterlist2 = [
+            "Cat",
+            "Penguin",
+            "Rubber Ducky",
+            "Thimble"
+        ]
 
         characters.goto(-900, -250)
 
@@ -228,7 +258,6 @@ class board:
             characters.penup()
             characters.write(character, font=("Arial", 24, "normal"))
 
-
         button = turtle.Turtle()
         button.hideturtle()
         button.color("white")
@@ -236,46 +265,7 @@ class board:
         button.goto(300, -300) 
         button.write("Back", align="center", font=("Arial", 20, "bold"))
 
-        def on_screen_click(x, y):
-            global ct
-            if -950 <= y <= 900: 
-                if -950 <= x <= 100: 
-                    turtle.clearscreen()
-                    board.gt()
-                    ct = 'battleship'
-                elif -40 <= x <= 30:  
-                    turtle.clearscreen()
-                    board.gt()
-                    ct = 'race car'
-                elif -140 <= x <= -100: 
-                    turtle.clearscreen()
-                    board.gt()
-                    ct = 'top hat'
-                elif -225 <= x <= -200:  
-                    turtle.clearscreen()
-                    board.gt()
-                    ct = 'scottish terrier'
-                elif -950 <= y <= 900:
-                    if -40 <= x <= 30:  
-                        turtle.clearscreen()
-                        board.gt()
-                        ct = 'cat'
-                    elif -140 <= x <= -100: 
-                        turtle.clearscreen()
-                        board.gt()
-                        ct = 'penguin'
-                    elif -225 <= x <= -200:  
-                        turtle.clearscreen()
-                        board.gt()
-                        ct = 'rubber ducky'
-                    elif 260 <= x <= 340:
-                        turtle.clearscreen()
-                        board.gt()
-                        ct = 'thimble'
-                    elif 260 <= x <= 340 and -315 <= y <= -285:  
-                        board.back_button()
-
-        screen.onscreenclick(on_screen_click)
+        print(board.ct)
 
         turtle.mainloop()
 
@@ -318,7 +308,6 @@ class board:
         title.color("white")
         title.write("Monopoly", align="center", font=("Futura", 64, "bold"))
 
-
         def draw_button(label, x, y):
             button.penup()
             button.goto(x, y)
@@ -355,4 +344,5 @@ class board:
         draw_button("Quit", -100, -200)
 
         turtle.mainloop()
-board.mainscreen()
+
+board.characterselection()
