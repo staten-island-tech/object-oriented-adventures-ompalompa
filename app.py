@@ -1,5 +1,3 @@
 import json
-from data.board import board
-from data.Player import Playeroptions
+from data.board import screens
 import turtle
-

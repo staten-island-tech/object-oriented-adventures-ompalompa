@@ -1,10 +1,12 @@
 import random
 import time
 import json
+from board import screens
 locations = open("./monopolyboard.json", encoding="utf8")
 data = json.load(locations)
 
 class Playeroptions:
+    name = screens.namepick.__name__
     def __init__(self, name, data_path, character=None):
         self.name = name
         self.character = character
@@ -13,20 +15,6 @@ class Playeroptions:
         self.location = 0
         with open(data_path, encoding="utf8") as file:
           self.data = json.load(file)
-
-    def select_character(self, available_characters):
-        print("\nCharacters:")
-        for character in available_characters:
-            print(character.capitalize())
-
-        while True:
-            selected_character = input("Select your character: ").strip().capitalize()
-            if selected_character in available_characters:
-                self.character = selected_character
-                print(f"You've selected {selected_character}.")
-                break
-            else:
-                print("Invalid character. Select from the available characters.")
 
     def buy_property(self, property, price):
         if self.balance >= price:
