@@ -2,9 +2,13 @@ import turtle
 
 class screens:
     ct = None
+    name = None
     @classmethod
     def set_ct(cls, value):  
         cls.ct = value
+    @classmethod
+    def set_name(cls, value):
+        cls.name = value
 
     def back_button():
         turtle.clearscreen()  
@@ -274,6 +278,7 @@ class screens:
         screen = turtle.Screen()
         screen.title("Monopoly Name")
         screens.screen1setup()
+        
 
         title = turtle.Turtle()
         title.hideturtle()
@@ -283,6 +288,8 @@ class screens:
         title.write("Enter A Name", align="center", font=("Futura", 64, "bold"))
 
         name = screen.textinput("NIM", "Enter Username:                                                                                                          ")
+        screens.set_name(name)
+
 
     def gamescreen4():
         print("hi4")
@@ -347,7 +354,7 @@ class screens:
                 elif -225 <= y <= -200:  
                     turtle.bye()
 
-        screen.onscreenclick(on_screen_click)
+        screens.onscreenclick(on_screen_click)
 
         draw_button("Play", -100, 100)
         draw_button("Rules", -100, 0)

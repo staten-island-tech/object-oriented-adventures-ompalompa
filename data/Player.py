@@ -6,7 +6,7 @@ locations = open("./monopolyboard.json", encoding="utf8")
 data = json.load(locations)
 
 class Playeroptions:
-    name = screens.namepick.__name__
+    name = screens.name
     def __init__(self, name, data_path, character=None):
         self.name = name
         self.character = character
