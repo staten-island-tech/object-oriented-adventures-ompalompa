@@ -87,6 +87,7 @@ class board:
             "13. Players may form agreements during trades, including selling properties and renting deals.",
             "14. The Utilities and Railroads have special rules for rent calculation based on dice rolls.",
             "15. No player can borrow money from another player."
+            ""
         ]
 
         rules.write("Monopoly Rules:", align="center", font=("Futura", 38, "bold"))
