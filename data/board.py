@@ -308,7 +308,9 @@ class screens:
         turtle.done()
 
     def bankscreen():
-        print("bankscreen")
+        screen = turtle.Screen()
+        screen.title("Monopoly Bank Screen")
+        screens.screen1setup()
 
     def mainscreen():
         screen = turtle.Screen()
