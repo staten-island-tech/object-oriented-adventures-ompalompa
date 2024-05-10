@@ -1,4 +1,4 @@
 from data.board import screens
 
-screens.namepick()
-screens.randomscreenidk()
+screens.mainscreen()
+print(screens.name,screens.gt,screens.ct)

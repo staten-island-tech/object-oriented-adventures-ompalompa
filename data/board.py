@@ -9,7 +9,10 @@ class screens:
     @classmethod
     def set_name(cls, value):
         cls.name = value
-
+    @classmethod
+    def set_gt(cls, value):
+        cls.gt = value
+        
     def back_button():
         turtle.clearscreen()  
         screens.mainscreen()
@@ -157,13 +160,16 @@ class screens:
             button.write(label, align="center", font=("Futura", 26, "bold"))
 
         def on_screen_click(x, y):
+            global gt
             if -200 <= x <= 220: 
                 if 40 <= y <= 100: 
                     turtle.clearscreen()
                     screens.characterselection()
+                    screens.set_gt('singleplayer')
                 elif -40 <= y <= 30:  
                     turtle.clearscreen()
                     screens.characterselection()
+                    screens.set_gt('multiplayer')
                 elif 260 <= x <= 340 and -315 <= y <= -285:  
                     screens.back_button()
         
@@ -288,7 +294,10 @@ class screens:
         title.write("Enter A Name", align="center", font=("Futura", 64, "bold"))
 
         name = screen.textinput("NIM", "Enter Username:                                                                                                          ")
-        screens.set_name(name)
+        screens.set_name(name)        
+        turtle.clearscreen()
+        screens.gameselection()
+    
 
 
     def gamescreen4():
@@ -346,7 +355,7 @@ class screens:
             if -200 <= x <= 220: 
                 if 40 <= y <= 100: 
                     turtle.clearscreen()
-                    screens.gameselection()
+                    screens.namepick()
                 elif -40 <= y <= 30:  
                     turtle.clearscreen()
                     screens.rulescreen() 
@@ -356,7 +365,7 @@ class screens:
                 elif -225 <= y <= -200:  
                     turtle.bye()
 
-        screens.onscreenclick(on_screen_click)
+        screen.onscreenclick(on_screen_click)
 
         draw_button("Play", -100, 100)
         draw_button("Rules", -100, 0)
