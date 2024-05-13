@@ -2,6 +2,7 @@ import turtle
 
 class screens:
     ct = None
+    gt = None
     name = None
     @classmethod
     def set_ct(cls, value):  
@@ -238,7 +239,7 @@ class screens:
         characters.color("white")
 
         characterlist1 = [
-            "Battleship",
+            "Battleship", # added
             "Race Car",
             "Top Hat",
             "Scottish Terrier"
@@ -256,9 +257,9 @@ class screens:
             characters.write(character, font=("Arial", 24, "normal"))
         characterlist2 = [
             "Cat",
-            "Penguin",
-            "Rubber Ducky",
-            "Thimble"
+            "Penguin"
+            "Rubber Ducky", # added
+            "Thimble" 
         ]
 
         characters.goto(-900, -250)
