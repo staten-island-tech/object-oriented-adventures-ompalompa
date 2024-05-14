@@ -1,6 +1,19 @@
 import turtle
 
 class screens:
+    ct = None
+    gt = None
+    name = None
+    @classmethod
+    def set_ct(cls, value):  
+        cls.ct = value
+    @classmethod
+    def set_name(cls, value):
+        cls.name = value
+    @classmethod
+    def set_gt(cls, value):
+        cls.gt = value
+        
     def back_button():
         turtle.clearscreen()  
         screens.mainscreen()
@@ -149,13 +162,16 @@ class screens:
             button.write(label, align="center", font=("Futura", 26, "bold"))
 
         def on_screen_click(x, y):
+            global gt
             if -200 <= x <= 220: 
                 if 40 <= y <= 100: 
                     turtle.clearscreen()
                     screens.characterselection()
+                    screens.set_gt('singleplayer')
                 elif -40 <= y <= 30:  
                     turtle.clearscreen()
                     screens.characterselection()
+                    screens.set_gt('multiplayer')
                 elif 260 <= x <= 340 and -315 <= y <= -285:  
                     screens.back_button()
         
@@ -165,8 +181,6 @@ class screens:
         draw_button("Multiplayer", -100, 0)
         draw_button("Back", 300, -300)
         screen.mainloop()
-
-    ct = None
 
     def characterselection():
         global ct
@@ -187,35 +201,35 @@ class screens:
             if -620 <= x <= -450 and 200 <= y <= 260: 
                 turtle.clearscreen()
                 screens.gamescreen4()
-                ct = 'battleship'
+                screens.set_ct('battleship')
             elif -320 <= x <= -150 and 200 <= y <= 260:  
                 turtle.clearscreen()
                 screens.gamescreen4()
-                ct = 'race car'
+                screens.set_ct('race car')
             elif -20 <= x <= 150 and 200 <= y <= 260: 
                 turtle.clearscreen()
                 screens.gamescreen4()
-                ct = 'top hat'
+                screens.set_ct('top hat')
             elif 280 <= x <= 450 and 200 <= y <= 260:  
                 turtle.clearscreen()
                 screens.gamescreen4()
-                ct = 'scottish terrier'
+                screens.set_ct('scottish terrier')
             elif -620 <= x <= -450 and -220 <= y <= -160:  
                 turtle.clearscreen()
                 screens.gamescreen5()
-                ct = 'cat'
+                screens.set_ct('cat')
             elif -320 <= x <= -150 and -220 <= y <= -160: 
                 turtle.clearscreen()
                 screens.gamescreen5()
-                ct = 'penguin'
+                screens.set_ct('penguin')
             elif -20 <= x <= 150 and -220 <= y <= -160:  
                 turtle.clearscreen()
                 screens.gamescreen5()
-                ct = 'rubber ducky'
+                screens.set_ct('rubber ducky')
             elif 280 <= x <= 450 and -220 <= y <= -160:
                 turtle.clearscreen()
                 screens.gamescreen5()
-                ct = "thimble"
+                screens.set_ct('thimble')
             elif 260 <= x <= 340 and -315 <= y <= -285:  
                 screens.back_button()
 
@@ -226,7 +240,7 @@ class screens:
         characters.color("white")
 
         characterlist1 = [
-            "Battleship",
+            "Battleship", # added
             "Race Car",
             "Top Hat",
             "Scottish Terrier"
@@ -244,9 +258,9 @@ class screens:
             characters.write(character, font=("Arial", 24, "normal"))
         characterlist2 = [
             "Cat",
-            "Penguin",
-            "Rubber Ducky",
-            "Thimble"
+            "Penguin"
+            "Rubber Ducky", # added
+            "Thimble" 
         ]
 
         characters.goto(-900, -250)
@@ -272,6 +286,7 @@ class screens:
         screen = turtle.Screen()
         screen.title("Monopoly Name")
         screens.screen1setup()
+        
 
         title = turtle.Turtle()
         title.hideturtle()
@@ -281,6 +296,11 @@ class screens:
         title.write("Enter A Name", align="center", font=("Futura", 64, "bold"))
 
         name = screen.textinput("NIM", "Enter Username:                                                                                                          ")
+        screens.set_name(name)        
+        turtle.clearscreen()
+        screens.gameselection()
+    
+
 
     def gamescreen4():
         print("hi4")
@@ -299,7 +319,9 @@ class screens:
         turtle.done()
 
     def bankscreen():
-        print("bankscreen")
+        screen = turtle.Screen()
+        screen.title("Monopoly Bank Screen")
+        screens.screen1setup()
 
     def mainscreen():
         screen = turtle.Screen()
@@ -335,7 +357,7 @@ class screens:
             if -200 <= x <= 220: 
                 if 40 <= y <= 100: 
                     turtle.clearscreen()
-                    screens.gameselection()
+                    screens.namepick()
                 elif -40 <= y <= 30:  
                     turtle.clearscreen()
                     screens.rulescreen() 
@@ -353,4 +375,3 @@ class screens:
         draw_button("Quit", -100, -200)
 
         turtle.mainloop()
-

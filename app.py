@@ -1,3 +1,4 @@
-import json
 from data.board import screens
-import turtle
+
+screens.mainscreen()
+print(screens.name,screens.gt,screens.ct)
