@@ -1,4 +1,4 @@
 from data.board import screens
 
-screens.characterselection()
+screens.mainscreen()
 print(screens.name,screens.gt,screens.ct)

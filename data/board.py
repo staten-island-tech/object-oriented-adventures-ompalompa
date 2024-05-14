@@ -233,6 +233,20 @@ class screens:
             elif 260 <= x <= 340 and -315 <= y <= -285:  
                 screens.back_button()
 
+        imagelist1 = [
+            'data/images/battleship.png'
+            'data/images/'
+            'data/images/'
+            'data/images/'
+        ]
+
+        imagelist1 = [
+            'data/images/'
+            'data/images/'
+            'data/images/'
+            'data/images/'
+        ]
+        
         screen.onscreenclick(on_screen_click)
         characters = turtle.Turtle()
         characters.hideturtle()
@@ -249,7 +263,7 @@ class screens:
         characters.goto(-900, 270)
         characters.penup()
 
-        for character in characterlist1:
+        for character in characterlist1 and imagelist1:
             characters.forward(300)
             characters.right(90)
             characters.forward(0)
