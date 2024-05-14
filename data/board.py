@@ -253,7 +253,7 @@ class screens:
         characters.color("white")
 
         characterlist1 = [
-            "Battleship", # added
+            "Battleship",
             "Race Car",
             "Top Hat",
             "Scottish Terrier"
@@ -271,8 +271,8 @@ class screens:
             characters.write(character, font=("Arial", 24, "normal"))
         characterlist2 = [
             "Cat",
-            "Penguin"
-            "Rubber Ducky", # added
+            "Penguin",
+            "Rubber Ducky",
             "Thimble" 
         ]
 
