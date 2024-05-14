@@ -1,0 +1,84 @@
+[
+    {
+        "name": "Advance to Go",
+        "action": "collect and advance",
+        "amount": 200,
+        "position": 1
+    },
+    {
+        "name": "Bank error in your favor",
+        "action": "collect",
+        "amount": 200
+    },
+    {
+        "name": "Dcotor's fee",
+        "action": "pay",
+        "amount": 50
+    },
+    {
+        "name": "From sale of stock",
+        "action": "collect",
+        "amount": 50
+    },
+    {
+        "name": "Get out of Jail Free",
+        "action": "advance",
+        "position": 10.5
+    },
+    {
+        "name": "Go to Jail",
+        "action": "advance",
+        "position": 10
+    },
+    {
+        "name": "Holiday fund matures",
+        "action": "collect",
+        "amount": 100
+    },
+    {
+        "name": "Income tax refund",
+        "action": "collect",
+        "amount": 20
+    },
+    {
+        "name": "It is your birthday",
+        "action": "collect",
+        "amount per player": 10 
+    },
+    {
+        "name": "Life insurance matures",
+        "action": "collect",
+        "amount": 100
+    },
+    {
+        "name": "Pay hospital fees",
+        "action": "pay",
+        "amount": 100
+    },
+    {
+        "name": "Pay school fees",
+        "action": "pay",
+        "amount": 50
+    },
+    {
+        "name": "Receive consultancy fee",
+        "action": "collect",
+        "amount": 25
+    },
+    {
+        "name": "You are assessed for street repair",
+        "action": "pay",
+        "amount per house": 40,
+        "amount per hotel": 115
+    },
+    {
+        "name": "You have won second prize in a beauty contest",
+        "action": "collect",
+        "amount": 10
+    },
+    {
+        "name": "Inherit",
+        "action": "collect",
+        "amount": 100
+    }
+]
