@@ -1,3 +1,4 @@
 //hi
 
-devicePixelRatioidkjdnijn
+print("hahhahhahahahahhahhahah1%js")
+void idk

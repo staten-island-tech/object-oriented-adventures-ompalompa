@@ -21,9 +21,8 @@ class screens:
     def screen1setup():
         screen = turtle.Screen()
         screen.setup(width=1.0, height=1.0)
-        screen.colormode(255)
-        screen.bgcolor(105,105,105)
         screen.bgpic('data/images/b1.png')
+
 
     def creditscreen():
         screen = turtle.Screen()
@@ -234,16 +233,16 @@ class screens:
 
         imagelist1 = [
             'data/images/battleship.png'
-            'data/images/'
-            'data/images/'
-            'data/images/'
+            'data/images/racecar.png'
+            'data/images/tophat.png'
+            'data/images/dog.png'
         ]
 
-        imagelist1 = [
-            'data/images/'
-            'data/images/'
-            'data/images/'
-            'data/images/'
+        imagelist2 = [
+            'data/images/cat.png'
+            'data/images/penguin.png'
+            'data/images/rubber_duck.png'
+            'data/images/thimble.png'
         ]
         
         screen.onscreenclick(on_screen_click)
@@ -262,7 +261,7 @@ class screens:
         characters.goto(-900, 270)
         characters.penup()
 
-        for character in characterlist1 and imagelist1:
+        for character in characterlist1:
             characters.forward(300)
             characters.right(90)
             characters.forward(0)
@@ -276,7 +275,7 @@ class screens:
             "Thimble" 
         ]
 
-        characters.goto(-900, -250)
+        characters.goto(-900, -150)
 
         for character in characterlist2:
             characters.forward(300)
@@ -285,6 +284,26 @@ class screens:
             characters.right(-90)
             characters.penup()
             characters.write(character, font=("Arial", 24, "normal"))
+
+        characters.goto(-900, 200)
+
+        for image in imagelist1:
+            characters.forward(300)
+            characters.right(90)
+            characters.forward(0)
+            characters.right(-90)
+            characters.penup()
+            screen.register_shape(image)
+
+        characters.goto(-900, -100)
+
+        for image in imagelist2:
+            characters.forward(300)
+            characters.right(90)
+            characters.forward(0)
+            characters.right(-90)
+            characters.penup()
+            turtle.addshape(image)
 
         button = turtle.Turtle()
         button.hideturtle()
