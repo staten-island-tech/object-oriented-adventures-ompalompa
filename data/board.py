@@ -263,7 +263,7 @@ class screens:
         characters.goto(-900, 270)
         characters.penup()
 
-        for character in characterlist1 and imagelist1:
+        for character in characterlist1:
             characters.forward(300)
             characters.right(90)
             characters.forward(0)
