@@ -21,8 +21,9 @@ class screens:
     def screen1setup():
         screen = turtle.Screen()
         screen.setup(width=1.0, height=1.0)
+        screen.colormode(255)
+        screen.bgcolor(105,105,105)
         screen.bgpic('data/images/b1.png')
-
 
     def creditscreen():
         screen = turtle.Screen()
@@ -54,14 +55,14 @@ class screens:
             credits.forward(120)
             credits.right(-90)
             credits.pendown()
-            credits.write(credit, font=("Arial", 24, "normal"))
+            credits.write(credit, font=("Futura", 24, "normal"))
 
         button = turtle.Turtle()
         button.hideturtle()
         button.color("white")
         button.penup()
         button.goto(0, -250) 
-        button.write("Back", align="center", font=("Arial", 20, "bold"))
+        button.write("Back", align="center", font=("Futura", 20, "bold"))
 
         def on_screen_click(x, y):
             if -40 <= x <= 40 and -265 <= y <= -235:  
@@ -99,6 +100,7 @@ class screens:
             "13. Players may form agreements during trades, including selling properties and renting deals.",
             "14. The Utilities and Railroads have special rules for rent calculation based on dice rolls.",
             "15. No player can borrow money from another player."
+            ""
         ]
 
         rules.write("Monopoly Rules:", align="center", font=("Futura", 38, "bold"))
@@ -113,14 +115,14 @@ class screens:
             rules.forward(30)
             rules.right(-90)
             rules.pendown()
-            rules.write(rule, font=("Arial", 14, "normal"))
+            rules.write(rule, font=("Futura", 14, "normal"))
 
         button = turtle.Turtle()
         button.hideturtle()
         button.color("white")
         button.penup()
         button.goto(300, -300) 
-        button.write("Back", align="center", font=("Arial", 20, "bold"))
+        button.write("Back", align="center", font=("Futura", 20, "bold"))
 
         def on_screen_click(x, y):
             if 260 <= x <= 340 and -315 <= y <= -285:  
@@ -178,6 +180,9 @@ class screens:
         draw_button("Singleplayer", -100, 100)
         draw_button("Multiplayer", -100, 0)
         draw_button("Back", 300, -300)
+        def on_screen_click(x, y):
+            if 260 <= x <= 340 and -315 <= y <= -285:  
+                screens.back_button()
         screen.mainloop()
 
     def characterselection():
@@ -233,16 +238,16 @@ class screens:
 
         imagelist1 = [
             'data/images/battleship.png'
-            'data/images/racecar.png'
-            'data/images/tophat.png'
-            'data/images/dog.png'
+            'data/images/'
+            'data/images/'
+            'data/images/'
         ]
 
-        imagelist2 = [
-            'data/images/cat.png'
-            'data/images/penguin.png'
-            'data/images/rubber_duck.png'
-            'data/images/thimble.png'
+        imagelist1 = [
+            'data/images/'
+            'data/images/'
+            'data/images/'
+            'data/images/'
         ]
         
         screen.onscreenclick(on_screen_click)
@@ -261,7 +266,7 @@ class screens:
         characters.goto(-900, 270)
         characters.penup()
 
-        for character in characterlist1:
+        for character in characterlist1 and imagelist1:
             characters.forward(300)
             characters.right(90)
             characters.forward(0)
@@ -275,7 +280,7 @@ class screens:
             "Thimble" 
         ]
 
-        characters.goto(-900, -150)
+        characters.goto(-900, -250)
 
         for character in characterlist2:
             characters.forward(300)
@@ -284,26 +289,6 @@ class screens:
             characters.right(-90)
             characters.penup()
             characters.write(character, font=("Arial", 24, "normal"))
-
-        characters.goto(-900, 200)
-
-        for image in imagelist1:
-            characters.forward(300)
-            characters.right(90)
-            characters.forward(0)
-            characters.right(-90)
-            characters.penup()
-            turtle.addshape("image")
-
-        characters.goto(-900, -100)
-
-        for image in imagelist2:
-            characters.forward(300)
-            characters.right(90)
-            characters.forward(0)
-            characters.right(-90)
-            characters.penup()
-            turtle.register_shape("image")
 
         button = turtle.Turtle()
         button.hideturtle()
@@ -325,7 +310,7 @@ class screens:
         title.penup()
         title.goto(0, 150)
         title.color("white")
-        title.write("Enter A Name", align="center", font=("Futura", 64, "bold"))
+        title.write("What's ur name", align="center", font=("Futura", 64, "bold"))
 
         name = screen.textinput("NIM", "Enter Username:                                                                                                          ")
         screens.set_name(name)        
@@ -369,7 +354,7 @@ class screens:
         title.penup()
         title.goto(0, 150)
         title.color("white")
-        title.write("Monopoly", align="center", font=("Futura", 64, "bold"))
+        title.write("Monopoly", align="center", font=("Comic Sans MS", 64, "bold"))
 
         def draw_button(label, x, y):
             button.penup()
