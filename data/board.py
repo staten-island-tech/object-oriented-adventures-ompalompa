@@ -293,7 +293,7 @@ class screens:
             characters.forward(0)
             characters.right(-90)
             characters.penup()
-            screen.register_shape(image)
+            turtle.addshape("image")
 
         characters.goto(-900, -100)
 
@@ -303,7 +303,7 @@ class screens:
             characters.forward(0)
             characters.right(-90)
             characters.penup()
-            turtle.addshape(image)
+            turtle.register_shape("image")
 
         button = turtle.Turtle()
         button.hideturtle()
