@@ -1,3 +1,4 @@
+from tkinter import *
 import tkinter as tk
 from PIL import Image, ImageTk
 
@@ -17,10 +18,13 @@ class TkinterBoard:
         background_label = tk.Label(self.root, image=tk_image)
         background_label.image = tk_image
         background_label.place(x=0, y=0, relwidth=1, relheight=1)
+        
 
     def mainscreen(self):
         x = "Monopoly"
         self.setup_screen(x)
+        
+
 
 if __name__ == "__main__":
     root = tk.Tk()
