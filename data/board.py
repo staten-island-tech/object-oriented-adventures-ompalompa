@@ -131,6 +131,7 @@ class screens:
         screen.onscreenclick(on_screen_click)
         screen.mainloop()
 
+
     def gameselection():
         screen = turtle.Screen()
         screen.title("Game Selection")
@@ -201,37 +202,37 @@ class screens:
 
         def on_screen_click(x, y):
             global ct
-            if -620 <= x <= -450 and 200 <= y <= 260: 
+            if -620 <= x <= -450 and 250 <= y <= 310: 
                 turtle.clearscreen()
-                screens.gamescreen4()
+                screens.battleship()
                 screens.set_ct('battleship')
-            elif -320 <= x <= -150 and 200 <= y <= 260:  
+            elif -320 <= x <= -150 and 250 <= y <= 310:  
                 turtle.clearscreen()
-                screens.gamescreen4()
+                screens.racecar()
                 screens.set_ct('race car')
-            elif -20 <= x <= 150 and 200 <= y <= 260: 
+            elif -20 <= x <= 150 and 250 <= y <= 310: 
                 turtle.clearscreen()
-                screens.gamescreen4()
+                screens.tophat()
                 screens.set_ct('top hat')
-            elif 280 <= x <= 450 and 200 <= y <= 260:  
+            elif 280 <= x <= 450 and 250 <= y <= 310:  
                 turtle.clearscreen()
-                screens.gamescreen4()
+                screens.scottishterrier()
                 screens.set_ct('scottish terrier')
-            elif -620 <= x <= -450 and -220 <= y <= -160:  
+            elif -620 <= x <= -450 and 0 <= y <= 60:  
                 turtle.clearscreen()
-                screens.gamescreen5()
+                screens.cat()
                 screens.set_ct('cat')
-            elif -320 <= x <= -150 and -220 <= y <= -160: 
+            elif -320 <= x <= -150 and 0 <= y <= 60: 
                 turtle.clearscreen()
-                screens.gamescreen5()
+                screens.penguin()
                 screens.set_ct('penguin')
-            elif -20 <= x <= 150 and -220 <= y <= -160:  
+            elif -20 <= x <= 150 and 0 <= y <= 60:  
                 turtle.clearscreen()
-                screens.gamescreen5()
+                screens.rubberducky()
                 screens.set_ct('rubber ducky')
-            elif 280 <= x <= 450 and -220 <= y <= -160:
+            elif 280 <= x <= 450 and 0 <= y <= 60:
                 turtle.clearscreen()
-                screens.gamescreen5()
+                screens.thimble()
                 screens.set_ct('thimble')
             elif 260 <= x <= 340 and -315 <= y <= -285:  
                 screens.back_button()
@@ -266,7 +267,7 @@ class screens:
             "Thimble" 
         ]
 
-        characters.goto(-900, -50)
+        characters.goto(-900, -20)
 
         for character in characterlist2:
             characters.forward(300)
@@ -275,21 +276,6 @@ class screens:
             characters.right(-90)
             characters.penup()
             characters.write(character, font=("Comic Sans MS", 24, "normal"))
-        
-        imagelist1 = [
-            'data/images/battleship.png'
-            'data/images/racecar.png'
-            'data/images/tophat.png'
-            'data/images/dog.png'
-        ]
-
-        imagelist2 = [
-            'data/images/cat.png'
-            'data/images/penguin.png'
-            'data/images/rubber_duck.png'
-            'data/images/thimble.png'
-        ]
-
 
         button = turtle.Turtle()
         button.hideturtle()
@@ -299,6 +285,103 @@ class screens:
         button.write("Back", align="center", font=("Comic Sans MS", 20, "bold"))
 
         turtle.mainloop()
+
+    def battleship():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/battleship.png')
+        battleship = turtle.Turtle()
+        battleship.hideturtle()
+        battleship.penup()
+        battleship.color("black")
+        battleship.goto(-350, 250)
+        battleship.pendown()
+        battleship.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        battleship.penup()
+    def racecar():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/racecar.png')
+        racecar = turtle.Turtle()
+        racecar.hideturtle()
+        racecar.penup()
+        racecar.color("black")
+        racecar.goto(-350, 250)
+        racecar.pendown()
+        racecar.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        racecar.penup()
+    def tophat():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/tophat.png')
+        tophat = turtle.Turtle()
+        tophat.hideturtle()
+        tophat.penup()
+        tophat.color("black")
+        tophat.goto(-350, 250)
+        tophat.pendown()
+        tophat.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        tophat.penup()
+    def scottishterrier():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/dog.png')
+        scottishterrier = turtle.Turtle()
+        scottishterrier.hideturtle()
+        scottishterrier.penup()
+        scottishterrier.color("black")
+        scottishterrier.goto(-350, 250)
+        scottishterrier.pendown()
+        scottishterrier.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        scottishterrier.penup()
+    def cat():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/cat.png')
+        cat = turtle.Turtle()
+        cat.hideturtle()
+        cat.penup()
+        cat.color("black")
+        cat.goto(-350, 250)
+        cat.pendown()
+        cat.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        cat.penup()
+    def penguin():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/penguin.png')
+        penguin = turtle.Turtle()
+        penguin.hideturtle()
+        penguin.penup()
+        penguin.color("black")
+        penguin.goto(-350, 250)
+        penguin.pendown()
+        penguin.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        penguin.penup()
+    def rubberducky():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/rubber_duck.png')
+        rubberducky = turtle.Turtle()
+        rubberducky.hideturtle()
+        rubberducky.penup()
+        rubberducky.color("black")
+        rubberducky.goto(-350, 250)
+        rubberducky.pendown()
+        rubberducky.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        rubberducky.penup()
+    def thimble():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/thimble.png')
+        thimble = turtle.Turtle()
+        thimble.hideturtle()
+        thimble.penup()
+        thimble.color("black")
+        thimble.goto(-350, 250)
+        thimble.pendown()
+        thimble.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        thimble.penup()
 
     def namepick():
         screen = turtle.Screen()
