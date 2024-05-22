@@ -21,12 +21,16 @@ class TkinterBoard:
     def mainscreen(self):
         x = "Monopoly"
         self.setup_screen(x)
+        canvas = tk.Canvas(self.root, width=self.root.winfo_screenwidth(), height=self.root.winfo_screenheight())
+        canvas.pack(expand=True)
+        canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Monopoly", font=("Comic Sans MS", 80, "bold"), fill="white")
+
 
     def gameselection(self):
         print("hi")
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = TkinterBoard(root, "data/images/Monopoly.png")
+    app = TkinterBoard(root, "data/images/b1.png")
     app.mainscreen()
     root.mainloop()
