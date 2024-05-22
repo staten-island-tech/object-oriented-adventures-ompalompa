@@ -8,8 +8,15 @@ class TkinterBoard:
         self.image_path = image_path
 
     def setup_screen(self,title):
+        global background_label
         self.root.title(title)
         self.root.attributes('-fullscreen', True)
+        
+
+    def mainscreen(self):
+        x = "Monopoly"
+        self.setup_screen(x)
+
         original_image = Image.open(self.image_path)
         window_width = self.root.winfo_screenwidth()
         window_height = self.root.winfo_screenheight()
@@ -18,14 +25,9 @@ class TkinterBoard:
         background_label = tk.Label(self.root, image=tk_image)
         background_label.image = tk_image
         background_label.place(x=0, y=0, relwidth=1, relheight=1)
-        
-
-    def mainscreen(self):
-        x = "Monopoly"
-        self.setup_screen(x)
         canvas = tk.Canvas(self.root, width=self.root.winfo_screenwidth(), height=self.root.winfo_screenheight())
-        canvas.pack(expand=True)
         canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Monopoly", font=("Comic Sans MS", 80, "bold"), fill="white")
+        canvas.place(relx=0,rely=0,relheight=1,relwidth=1)
 
 
     def gameselection(self):
