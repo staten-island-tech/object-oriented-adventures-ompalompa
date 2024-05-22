@@ -21,14 +21,9 @@ class TkinterBoard:
     def mainscreen(self):
         x = "Monopoly"
         self.setup_screen(x)
-        self.label = tk.Label(self.root, text="Monopoly", font=("Comic Sans MS", 48, "bold"), fg="white", bg="black")
-        self.label.config(bg='black')  # Set background color to black
-        self.label.pack(expand=True)
-        self.label.place(relx=0.5, rely=0.1, anchor=tk.CENTER)
-        self.label.bind("<Button-1>", self.gameselection)
 
     def gameselection(self):
-        print("Hi")
+        print("hi")
 
 if __name__ == "__main__":
     root = tk.Tk()
