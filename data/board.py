@@ -43,7 +43,7 @@ class screens:
             "Aaron Li"
         ]
 
-        credits.write("Monopoly Credits:", align="center", font=("Futura", 48, "bold"))
+        credits.write("Monopoly Credits:", align="center", font=("Comic Sans MS", 48, "bold"))
         credits.penup()
         credits.goto(-350, 220)
         credits.pendown()
@@ -55,14 +55,14 @@ class screens:
             credits.forward(120)
             credits.right(-90)
             credits.pendown()
-            credits.write(credit, font=("Futura", 24, "normal"))
+            credits.write(credit, font=("Comic Sans MS", 24, "normal"))
 
         button = turtle.Turtle()
         button.hideturtle()
         button.color("white")
         button.penup()
         button.goto(0, -250) 
-        button.write("Back", align="center", font=("Futura", 20, "bold"))
+        button.write("Back", align="center", font=("Comic Sans MS", 20, "bold"))
 
         def on_screen_click(x, y):
             if -40 <= x <= 40 and -265 <= y <= -235:  
@@ -103,7 +103,7 @@ class screens:
             ""
         ]
 
-        rules.write("Monopoly Rules:", align="center", font=("Futura", 38, "bold"))
+        rules.write("Monopoly Rules:", align="center", font=("Comic Sans MS", 38, "bold"))
         rules.penup()
         rules.goto(-350, 220)
         rules.pendown()
@@ -115,14 +115,14 @@ class screens:
             rules.forward(30)
             rules.right(-90)
             rules.pendown()
-            rules.write(rule, font=("Futura", 14, "normal"))
+            rules.write(rule, font=("Comic Sans MS", 14, "normal"))
 
         button = turtle.Turtle()
         button.hideturtle()
         button.color("white")
         button.penup()
         button.goto(300, -300) 
-        button.write("Back", align="center", font=("Futura", 20, "bold"))
+        button.write("Back", align="center", font=("Comic Sans MS", 20, "bold"))
 
         def on_screen_click(x, y):
             if 260 <= x <= 340 and -315 <= y <= -285:  
@@ -145,7 +145,7 @@ class screens:
         title.penup()
         title.goto(0, 300)
         title.color("white")
-        title.write("Select a Game Type", align="center", font=("Futura", 64, "bold"))
+        title.write("Select a Game Type", align="center", font=("Comic Sans MS", 64, "bold"))
 
         def draw_button(label, x, y):
             button.penup()
@@ -159,7 +159,7 @@ class screens:
             button.penup()
             button.goto(x + 100, y - 43)
             button.color("white")
-            button.write(label, align="center", font=("Futura", 26, "bold"))
+            button.write(label, align="center", font=("Comic Sans MS", 26, "bold"))
 
         def on_screen_click(x, y):
             global gt
@@ -197,7 +197,7 @@ class screens:
         title.penup()
         title.goto(0, 300)
         title.color("white")
-        title.write("Select a Character", align="center", font=("Futura", 64, "bold"))
+        title.write("Select a Character", align="center", font=("Comic Sans MS", 64, "bold"))
 
         def on_screen_click(x, y):
             global ct
@@ -235,20 +235,6 @@ class screens:
                 screens.set_ct('thimble')
             elif 260 <= x <= 340 and -315 <= y <= -285:  
                 screens.back_button()
-
-        imagelist1 = [
-            'data/images/battleship.png'
-            'data/images/'
-            'data/images/'
-            'data/images/'
-        ]
-
-        imagelist1 = [
-            'data/images/'
-            'data/images/'
-            'data/images/'
-            'data/images/'
-        ]
         
         screen.onscreenclick(on_screen_click)
         characters = turtle.Turtle()
@@ -266,13 +252,13 @@ class screens:
         characters.goto(-900, 270)
         characters.penup()
 
-        for character in characterlist1 and imagelist1:
+        for character in characterlist1:
             characters.forward(300)
             characters.right(90)
             characters.forward(0)
             characters.right(-90)
             characters.penup()
-            characters.write(character, font=("Arial", 24, "normal"))
+            characters.write(character, font=("Comic Sans MS", 24, "normal"))
         characterlist2 = [
             "Cat",
             "Penguin",
@@ -280,7 +266,7 @@ class screens:
             "Thimble" 
         ]
 
-        characters.goto(-900, -250)
+        characters.goto(-900, -50)
 
         for character in characterlist2:
             characters.forward(300)
@@ -288,14 +274,29 @@ class screens:
             characters.forward(0)
             characters.right(-90)
             characters.penup()
-            characters.write(character, font=("Arial", 24, "normal"))
+            characters.write(character, font=("Comic Sans MS", 24, "normal"))
+        
+        imagelist1 = [
+            'data/images/battleship.png'
+            'data/images/racecar.png'
+            'data/images/tophat.png'
+            'data/images/dog.png'
+        ]
+
+        imagelist2 = [
+            'data/images/cat.png'
+            'data/images/penguin.png'
+            'data/images/rubber_duck.png'
+            'data/images/thimble.png'
+        ]
+
 
         button = turtle.Turtle()
         button.hideturtle()
         button.color("white")
         button.penup()
         button.goto(300, -300) 
-        button.write("Back", align="center", font=("Arial", 20, "bold"))
+        button.write("Back", align="center", font=("Comic Sans MS", 20, "bold"))
 
         turtle.mainloop()
 
@@ -310,7 +311,7 @@ class screens:
         title.penup()
         title.goto(0, 150)
         title.color("white")
-        title.write("What's ur name", align="center", font=("Futura", 64, "bold"))
+        title.write("What's ur name", align="center", font=("Comic Sans MS", 64, "bold"))
 
         name = screen.textinput("NIM", "Enter Username:                                                                                                          ")
         screens.set_name(name)        
@@ -368,7 +369,7 @@ class screens:
             button.penup()
             button.goto(x + 100, y - 43)
             button.color("white")
-            button.write(label, align="center", font=("Futura", 26, "bold"))
+            button.write(label, align="center", font=("Comic Sans MS", 26, "bold"))
 
         def on_screen_click(x, y):
             if -200 <= x <= 220: 
