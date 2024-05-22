@@ -6,6 +6,9 @@ class TkinterBoard:
         self.root = root
         self.image_path = image_path
 
+    def clear_screen(self):
+        self.canvas.delete("all")
+
     def setup_screen(self, title):
         self.root.title(title)
         self.root.attributes('-fullscreen', True)
@@ -37,15 +40,16 @@ class TkinterBoard:
     def token(self):
         print("play")
 
+ 
     def rules(self):
-        self.canvas.delete("all")
+        self.clear_screen()
         x = "Rules"
         self.setup_screen(x)
         self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Rules", font=("Comic Sans MS", 80, "bold"), fill="white")
 
-        frame = tk.Frame(self.canvas)
-        frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=self.root.winfo_screenwidth() * 0.8, height=self.root.winfo_screenheight() * 0.6)
-        
+        frame = tk.Frame(self.canvas, bg="white")
+        frame_window = self.canvas.create_window(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2,  window=frame, width=self.root.winfo_screenwidth() * 0.8, height=self.root.winfo_screenheight() * 0.6)
+
         scrollbar = tk.Scrollbar(frame)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         
