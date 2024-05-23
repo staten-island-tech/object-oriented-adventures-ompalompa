@@ -5,15 +5,13 @@ locations = open("./monopolyboard.json", encoding="utf8")
 data = json.load(locations)
 
 PlayerCount = []
-Player = input("What is the name of the first player?")
-PlayerCount.append(Player)
-AddAnother = input("Do you want to add another player?")
-while AddAnother.upper == 'Yes':
-    Player = input("What is the name of the next player?")
+
+PlayersNumber = int(input("How many players are participating in the game?: "))
+
+for x in range(PlayersNumber):
+    Player = input("Input Player Name: ")
     PlayerCount.append(Player)
-    AddAnother = input("Do you want to add another player?")
-if AddAnother.upper == 'No':
-    print()
+print(f"The Current Players Are: {PlayerCount}")
 
 class Playeroptions:
     def __init__(self, name, data_path, character=None):
@@ -25,23 +23,23 @@ class Playeroptions:
         with open(data_path, encoding="utf8") as file:
           self.data = json.load(file)
 
-def roll_dice(self):
-        x = random.randint(1, 6)
-        y = random.randint(1, 6)
-        z = x + y
-        self.location += z
+    def roll_dice(self):
+            x = random.randint(1, 6)
+            y = random.randint(1, 6)
+            z = x + y
+            self.location += z
 
-        new_location = None
-        for location in self.data:
-            if self.location == location['position']:
-                new_location = location['name']
-                break
+            new_location = None
+            for location in self.data:
+                if self.location == location['position']:
+                    new_location = location['name']
+                    break
 
-        print("\nYou rolled...")
-        time.sleep(2)
-        print(f"First roll: {x}")
-        print(f"Second roll: {y}")
-        print(f"Your new location is {new_location}")    
-
-player = Playeroptions("Player 1", "./monopolyboard.json")
-player.roll_dice()      
+            print("\nYou rolled...")
+            time.sleep(2)
+            print(f"First roll: {x}")
+            print(f"Second roll: {y}")
+            print(f"Your new location is {new_location}")
+for x in range(PlayersNumber):
+    player = Playeroptions("Player 1", "./monopolyboard.json")
+    player.roll_dice()
