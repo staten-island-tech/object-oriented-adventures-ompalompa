@@ -7,7 +7,8 @@ class TkinterBoard:
         self.image_path = image_path
 
     def clear_screen(self):
-        self.canvas.delete("all")
+        for widget in self.root.winfo_children():
+            widget.destroy()
 
     def setup_screen(self, title):
         self.root.title(title)
@@ -37,19 +38,36 @@ class TkinterBoard:
         text_id = self.canvas.create_text(x, y, text=text, font=font, fill="white")
         self.canvas.tag_bind(text_id, "<Button-1>", lambda event: command())
 
+    def name(self):
+        print("name")
+        self.clear_screen()
+        x = "Name"
+        self.setup_screen(x)
+        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Type a Name", font=("Comic Sans MS", 80, "bold"), fill=None)
+
+
     def token(self):
-        print("play")
+        self.clear_screen()
+        x = "Token"
+        self.setup_screen(x)
+        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Pick a Token", font=("Comic Sans MS", 80, "bold"), fill=None)
+
+    def game(self):
+        self.clear_screen()
+        x = "Game"
+        self.setup_screen(x)
+        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Select a Game Type", font=("Comic Sans MS", 80, "bold"), fill=None)
 
  
     def rules(self):
         self.clear_screen()
         x = "Rules"
         self.setup_screen(x)
-        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Rules", font=("Comic Sans MS", 80, "bold"), fill="white")
+        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Rules", font=("Comic Sans MS", 80, "bold"), fill=None)
 
-        frame = tk.Frame(self.canvas, bg="white")
-        frame_window = self.canvas.create_window(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2,  window=frame, width=self.root.winfo_screenwidth() * 0.8, height=self.root.winfo_screenheight() * 0.6)
-
+        frame = tk.Frame(self.canvas, background="systemTransparent")
+        frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=self.root.winfo_screenwidth() * 0.8, height=self.root.winfo_screenheight() * 0.6)
+        
         scrollbar = tk.Scrollbar(frame)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         
@@ -63,6 +81,7 @@ class TkinterBoard:
         text_widget.insert(tk.END, rules_text)
         text_widget.config(state=tk.DISABLED)
 
+
     def credits(self):
         print("credit")
 
@@ -72,5 +91,5 @@ class TkinterBoard:
 if __name__ == "__main__":
     root = tk.Tk()
     app = TkinterBoard(root, "data/images/b1.png")
-    app.mainscreen()
+    app.name()
     root.mainloop()
