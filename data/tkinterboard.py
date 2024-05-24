@@ -46,7 +46,7 @@ class TkinterBoard:
         self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Enter A Name", font=("Comic Sans MS", 80, "bold"), fill="white")
 
         self.name = tk.Entry(self.canvas, font=("Comic Sans MS", 20), bg="light gray")
-        self.name.place(relx=0.5,rely=0.3, anchor=tk.CENTER)
+        self.name.place(relx=0.5,rely=0.2, anchor=tk.CENTER)
 
         self.makebutton("Enter", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 - 80, command=self.token)
 
@@ -55,12 +55,21 @@ class TkinterBoard:
         x = "Token"
         self.setup_screen(x)
         self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Pick a Token", font=("Comic Sans MS", 80, "bold"), fill="white")
+        
+
 
     def game(self):
         self.clear_screen()
         x = "Game"
         self.setup_screen(x)
         self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Select a Game Type", font=("Comic Sans MS", 80, "bold"), fill=None)
+
+        button_font = ("Comic Sans MS", 40, "bold")
+
+        self.makebutton("Singleplayer", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 - 80, command=self.token)
+        self.makebutton("Multiplayer", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 - 80, command=self.token)
+
+
 
  
     def rules(self):
@@ -94,6 +103,7 @@ class TkinterBoard:
 
     def token(self):
         name=self.name.get()
+        gt=self.game.get()
         print(name)
         self.tokencharacter()
 
