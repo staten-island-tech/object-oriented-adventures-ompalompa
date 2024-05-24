@@ -6,17 +6,13 @@ data = json.load(locations)
 
 PlayerCount = []
 
-PlayersNumber = int(input("How many players are participating in the game?: "))
+PlayersNumber = input("How many players are participating in the game?: ")
 
 for x in range(PlayersNumber):
     Player = int(input("Input Player Name: "))
     PlayerCount.append(Player)
 print(f"The Current Players Are: {PlayerCount}")
 
-for x in PlayerCount:
-    x = []
-
-GoFirst = []
 class Playeroptions:
     def __init__(self, name, data_path, character=None):
         self.name = name
@@ -45,22 +41,6 @@ class Playeroptions:
             print(f"Second roll: {y}")
             print(f"{player}'s new location is {new_location}")
 
-    def go_first(self, player):
-        for x in int(range(PlayerCount)):
-            x = random.randint(1, 6)
-            y = random.randint(1, 6)
-            z = x + y
-
-            print("\nYou rolled...")
-            time.sleep(2)
-            print(f"First roll: {x}")
-            print(f"Second roll: {y}")
-            print(f"{player}'s new location is {z}")
-            GoFirst.append(z)
-            largest = max(GoFirst)
-            print(largest)
-
 for x in PlayerCount:
     player = Playeroptions(x, "./monopolyboard.json")
     player.roll_dice(x)
-    player.go_first(player)
