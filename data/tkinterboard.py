@@ -29,7 +29,7 @@ class TkinterBoard:
 
         button_font = ("Comic Sans MS", 40, "bold")
         
-        self.makebutton("Play", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 - 80, self.token)
+        self.makebutton("Play", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 - 80, self.name)
         self.makebutton("Rules", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2, self.rules)
         self.makebutton("Credits", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 + 80, self.credits)
         self.makebutton("Quit", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 + 160, self.quit)
@@ -45,18 +45,16 @@ class TkinterBoard:
         button_font = ("Comic Sans MS", 20, "bold")
         self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Enter A Name", font=("Comic Sans MS", 80, "bold"), fill="white")
 
-        self.name = tk.Entry(self.canvas, font=("Comic Sans MS", 20), fill=None)
+        self.name = tk.Entry(self.canvas, font=("Comic Sans MS", 20), bg="light gray")
         self.name.place(relx=0.5,rely=0.3, anchor=tk.CENTER)
 
         self.makebutton("Enter", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 - 80, command=self.token)
-        name= self.name.get()
-        print(name)
 
-    def token(self):
+    def tokencharacter(self):
         self.clear_screen()
         x = "Token"
         self.setup_screen(x)
-        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Pick a Token", font=("Comic Sans MS", 80, "bold"), fill=None)
+        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Pick a Token", font=("Comic Sans MS", 80, "bold"), fill="white")
 
     def game(self):
         self.clear_screen()
@@ -94,8 +92,13 @@ class TkinterBoard:
     def quit(self):
         self.root.quit()
 
+    def token(self):
+        name=self.name.get()
+        print(name)
+        self.tokencharacter()
+
 if __name__ == "__main__":
     root = tk.Tk()
     app = TkinterBoard(root, "data/images/b1.png")
-    app.name()
+    app.mainscreen()
     root.mainloop()
