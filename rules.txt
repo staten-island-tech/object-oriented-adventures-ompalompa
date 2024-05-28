@@ -1,0 +1,52 @@
+Objective
+Become the wealthiest player through buying, renting, and selling properties.
+
+Components
+- Game board with properties, railroads, utilities, and corner squares (GO, Jail, Free Parking, Go to Jail)
+- 2 six-sided dice
+- Tokens for each player
+- 32 houses and 12 hotels
+- Property cards
+- Chance and Community Chest cards
+- Money in various denominations
+- Title deed cards for each property
+
+Setup
+1. Each player selects a token.
+2. Each player is given $1500.
+3. Shuffle the Chance and Community Chest cards and place them face down on their designated spaces.
+4. Players start at the GO space.
+
+Gameplay
+1. Determine the first player by rolling the dice; the highest roller goes first.
+2. On a player's turn, they:
+   - Roll the dice and move their token the corresponding number of spaces.
+   - Follow the instructions of the space they land on.
+
+Spaces and Actions
+- Properties: If unowned, the player may buy it. If owned, the player pays rent to the owner.
+- Railroads and Utilities: Similar to properties, with specific rent rules.
+- Chance and Community Chest: Draw a card and follow its instructions.
+- Income Tax and Luxury Tax: Pay the bank the specified amount.
+- Jail: Players can be sent to jail, visit jail, or just pass through.
+- GO: Collect $200 each time you pass.
+- Free Parking: No specific rules, though house rules may vary.
+
+Property Management
+- Buying Properties: Players may buy unowned properties they land on.
+- Rent: Determined by the property card; can increase with houses and hotels.
+- Building: Players can build houses/hotels on monopolies (owning all properties of a color set).
+
+Special Rules
+- Jail: Players can get out by rolling doubles, using a Get Out of Jail Free card, or paying $50.
+- Mortgaging: Players can mortgage properties to raise money.
+- Trading: Players may trade properties, cash, and Get Out of Jail Free cards.
+- Bankruptcy: Players unable to pay debts go bankrupt and are out of the game.
+
+Winning the Game
+The game continues until all players except one are bankrupt. The remaining player is declared the winner.
+
+Important Points
+- No Loans: Players cannot loan money to other players.
+- Auctions: If a player chooses not to buy a property, it is auctioned to the highest bidder.
+- Bank: The bank handles all transactions, including property purchases, taxes, and jail fees.
