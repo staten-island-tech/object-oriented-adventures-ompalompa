@@ -1,12 +1,10 @@
 import random
 import time
 import json
-from board import screens
 locations = open("./monopolyboard.json", encoding="utf8")
 data = json.load(locations)
 
 class Playeroptions:
-    name = screens.name
     def __init__(self, name, data_path, character=None):
         self.name = name
         self.character = character
@@ -15,7 +13,7 @@ class Playeroptions:
         self.location = 0
         with open(data_path, encoding="utf8") as file:
           self.data = json.load(file)
-
+          
     def buy_property(self, property, price):
         if self.balance >= price:
             self.properties.append(property)
@@ -65,13 +63,27 @@ class Playeroptions:
         print(f"Your new location is {new_location}")
 
     def income_tax(self):
-        landed = False
-        print("Do you want to pay a fine of $200, or pay 10% of your total networth?")
-        choices = int(input("Choices: 1 ($200), or 2 (10%): "))
-        if choices == '1':
-            self.balance - 200
-        if choices == '2':
-            self.balance = (self.balance)*0.9
+        landed = True
+        while landed == True:
+            print("Do you want to pay a fine of $200, or pay 10% of your total networth?")
+            choices = int(input("Choices: 1 ($200), or 2 (10%): "))
+            if choices == '1':
+                self.balance - 200
+                print(f"Your current balance is ${self.balance}")
+            if choices == '2':
+                self.balance = (self.balance)*0.9
+                print(f"Your current balance is ${self.balance}")
+    def bankruptcy(self, balance, mode):
+        self.networth = self.balance + self.property
+        while self.balance <= 0:
+            if property + self.balance >= 0:
+                print(f"Your current balance is {balance}. You must sell a portion of your property to remain in the game.")
+            elif property + self.balance <= 0:
+                print(f"Your current balance is {balance}. Selling all your property will only get you to a balance of {self.networth}. You are eliminated from the game.")
+                if self.mode == 'multiplayer':
+                    print(f"There are now {contestants} left in the game.")
+                elif self.mode == 'singleplayer':
+                    print(f"There are {contestants} left in the game. The game will now end.")
 
 
 player = Playeroptions("Player 1", "./monopolyboard.json")

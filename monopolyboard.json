@@ -80,8 +80,13 @@
         "hotel": false
     },
     {
-        "name": "Jail/Just Visiting",
+        "name": "Jail",
         "position": 10,
+        "type": "corner"
+    },
+    {
+        "name": "Just Visiting",
+        "position": 10.5,
         "type": "corner"
     },
     {
