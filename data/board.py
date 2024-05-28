@@ -43,7 +43,7 @@ class screens:
             "Aaron Li"
         ]
 
-        credits.write("Monopoly Credits:", align="center", font=("Futura", 48, "bold"))
+        credits.write("Monopoly Credits:", align="center", font=("Comic Sans MS", 48, "bold"))
         credits.penup()
         credits.goto(-350, 220)
         credits.pendown()
@@ -55,14 +55,14 @@ class screens:
             credits.forward(120)
             credits.right(-90)
             credits.pendown()
-            credits.write(credit, font=("Arial", 24, "normal"))
+            credits.write(credit, font=("Comic Sans MS", 24, "normal"))
 
         button = turtle.Turtle()
         button.hideturtle()
         button.color("white")
         button.penup()
         button.goto(0, -250) 
-        button.write("Back", align="center", font=("Arial", 20, "bold"))
+        button.write("Back", align="center", font=("Comic Sans MS", 20, "bold"))
 
         def on_screen_click(x, y):
             if -40 <= x <= 40 and -265 <= y <= -235:  
@@ -103,7 +103,7 @@ class screens:
             ""
         ]
 
-        rules.write("Monopoly Rules:", align="center", font=("Futura", 38, "bold"))
+        rules.write("Monopoly Rules:", align="center", font=("Comic Sans MS", 38, "bold"))
         rules.penup()
         rules.goto(-350, 220)
         rules.pendown()
@@ -115,14 +115,14 @@ class screens:
             rules.forward(30)
             rules.right(-90)
             rules.pendown()
-            rules.write(rule, font=("Arial", 14, "normal"))
+            rules.write(rule, font=("Comic Sans MS", 14, "normal"))
 
         button = turtle.Turtle()
         button.hideturtle()
         button.color("white")
         button.penup()
         button.goto(300, -300) 
-        button.write("Back", align="center", font=("Arial", 20, "bold"))
+        button.write("Back", align="center", font=("Comic Sans MS", 20, "bold"))
 
         def on_screen_click(x, y):
             if 260 <= x <= 340 and -315 <= y <= -285:  
@@ -130,6 +130,7 @@ class screens:
                 
         screen.onscreenclick(on_screen_click)
         screen.mainloop()
+
 
     def gameselection():
         screen = turtle.Screen()
@@ -145,7 +146,7 @@ class screens:
         title.penup()
         title.goto(0, 300)
         title.color("white")
-        title.write("Select a Game Type", align="center", font=("Futura", 64, "bold"))
+        title.write("Select a Game Type", align="center", font=("Comic Sans MS", 64, "bold"))
 
         def draw_button(label, x, y):
             button.penup()
@@ -159,7 +160,7 @@ class screens:
             button.penup()
             button.goto(x + 100, y - 43)
             button.color("white")
-            button.write(label, align="center", font=("Futura", 26, "bold"))
+            button.write(label, align="center", font=("Comic Sans MS", 26, "bold"))
 
         def on_screen_click(x, y):
             global gt
@@ -180,6 +181,9 @@ class screens:
         draw_button("Singleplayer", -100, 100)
         draw_button("Multiplayer", -100, 0)
         draw_button("Back", 300, -300)
+        def on_screen_click(x, y):
+            if 260 <= x <= 340 and -315 <= y <= -285:  
+                screens.back_button()
         screen.mainloop()
 
     def characterselection():
@@ -194,58 +198,44 @@ class screens:
         title.penup()
         title.goto(0, 300)
         title.color("white")
-        title.write("Select a Character", align="center", font=("Futura", 64, "bold"))
+        title.write("Select a Character", align="center", font=("Comic Sans MS", 64, "bold"))
 
         def on_screen_click(x, y):
             global ct
-            if -620 <= x <= -450 and 200 <= y <= 260: 
+            if -620 <= x <= -450 and 250 <= y <= 310: 
                 turtle.clearscreen()
-                screens.gamescreen4()
+                screens.battleship()
                 screens.set_ct('battleship')
-            elif -320 <= x <= -150 and 200 <= y <= 260:  
+            elif -320 <= x <= -150 and 250 <= y <= 310:  
                 turtle.clearscreen()
-                screens.gamescreen4()
+                screens.racecar()
                 screens.set_ct('race car')
-            elif -20 <= x <= 150 and 200 <= y <= 260: 
+            elif -20 <= x <= 150 and 250 <= y <= 310: 
                 turtle.clearscreen()
-                screens.gamescreen4()
+                screens.tophat()
                 screens.set_ct('top hat')
-            elif 280 <= x <= 450 and 200 <= y <= 260:  
+            elif 280 <= x <= 450 and 250 <= y <= 310:  
                 turtle.clearscreen()
-                screens.gamescreen4()
+                screens.scottishterrier()
                 screens.set_ct('scottish terrier')
-            elif -620 <= x <= -450 and -220 <= y <= -160:  
+            elif -620 <= x <= -450 and 0 <= y <= 60:  
                 turtle.clearscreen()
-                screens.gamescreen5()
+                screens.cat()
                 screens.set_ct('cat')
-            elif -320 <= x <= -150 and -220 <= y <= -160: 
+            elif -320 <= x <= -150 and 0 <= y <= 60: 
                 turtle.clearscreen()
-                screens.gamescreen5()
+                screens.penguin()
                 screens.set_ct('penguin')
-            elif -20 <= x <= 150 and -220 <= y <= -160:  
+            elif -20 <= x <= 150 and 0 <= y <= 60:  
                 turtle.clearscreen()
-                screens.gamescreen5()
+                screens.rubberducky()
                 screens.set_ct('rubber ducky')
-            elif 280 <= x <= 450 and -220 <= y <= -160:
+            elif 280 <= x <= 450 and 0 <= y <= 60:
                 turtle.clearscreen()
-                screens.gamescreen5()
+                screens.thimble()
                 screens.set_ct('thimble')
             elif 260 <= x <= 340 and -315 <= y <= -285:  
                 screens.back_button()
-
-        imagelist1 = [
-            'data/images/battleship.png'
-            'data/images/'
-            'data/images/'
-            'data/images/'
-        ]
-
-        imagelist1 = [
-            'data/images/'
-            'data/images/'
-            'data/images/'
-            'data/images/'
-        ]
         
         screen.onscreenclick(on_screen_click)
         characters = turtle.Turtle()
@@ -269,7 +259,7 @@ class screens:
             characters.forward(0)
             characters.right(-90)
             characters.penup()
-            characters.write(character, font=("Arial", 24, "normal"))
+            characters.write(character, font=("Comic Sans MS", 24, "normal"))
         characterlist2 = [
             "Cat",
             "Penguin",
@@ -277,7 +267,7 @@ class screens:
             "Thimble" 
         ]
 
-        characters.goto(-900, -250)
+        characters.goto(-900, -20)
 
         for character in characterlist2:
             characters.forward(300)
@@ -285,16 +275,113 @@ class screens:
             characters.forward(0)
             characters.right(-90)
             characters.penup()
-            characters.write(character, font=("Arial", 24, "normal"))
+            characters.write(character, font=("Comic Sans MS", 24, "normal"))
 
         button = turtle.Turtle()
         button.hideturtle()
         button.color("white")
         button.penup()
         button.goto(300, -300) 
-        button.write("Back", align="center", font=("Arial", 20, "bold"))
+        button.write("Back", align="center", font=("Comic Sans MS", 20, "bold"))
 
         turtle.mainloop()
+
+    def battleship():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/battleship.png')
+        battleship = turtle.Turtle()
+        battleship.hideturtle()
+        battleship.penup()
+        battleship.color("black")
+        battleship.goto(-350, 250)
+        battleship.pendown()
+        battleship.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        battleship.penup()
+    def racecar():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/racecar.png')
+        racecar = turtle.Turtle()
+        racecar.hideturtle()
+        racecar.penup()
+        racecar.color("black")
+        racecar.goto(-350, 250)
+        racecar.pendown()
+        racecar.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        racecar.penup()
+    def tophat():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/tophat.png')
+        tophat = turtle.Turtle()
+        tophat.hideturtle()
+        tophat.penup()
+        tophat.color("black")
+        tophat.goto(-350, 250)
+        tophat.pendown()
+        tophat.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        tophat.penup()
+    def scottishterrier():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/dog.png')
+        scottishterrier = turtle.Turtle()
+        scottishterrier.hideturtle()
+        scottishterrier.penup()
+        scottishterrier.color("black")
+        scottishterrier.goto(-350, 250)
+        scottishterrier.pendown()
+        scottishterrier.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        scottishterrier.penup()
+    def cat():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/cat.png')
+        cat = turtle.Turtle()
+        cat.hideturtle()
+        cat.penup()
+        cat.color("black")
+        cat.goto(-350, 250)
+        cat.pendown()
+        cat.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        cat.penup()
+    def penguin():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/penguin.png')
+        penguin = turtle.Turtle()
+        penguin.hideturtle()
+        penguin.penup()
+        penguin.color("black")
+        penguin.goto(-350, 250)
+        penguin.pendown()
+        penguin.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        penguin.penup()
+    def rubberducky():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/rubber_duck.png')
+        rubberducky = turtle.Turtle()
+        rubberducky.hideturtle()
+        rubberducky.penup()
+        rubberducky.color("black")
+        rubberducky.goto(-350, 250)
+        rubberducky.pendown()
+        rubberducky.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        rubberducky.penup()
+    def thimble():
+        screen = turtle.Screen()
+        screen.setup(width=1.0, height=1.0)
+        screen.bgpic('data/images/thimble.png')
+        thimble = turtle.Turtle()
+        thimble.hideturtle()
+        thimble.penup()
+        thimble.color("black")
+        thimble.goto(-350, 250)
+        thimble.pendown()
+        thimble.write("Isn't it beautiful?", align="center", font=("Comic Sans MS", 48, "bold"))
+        thimble.penup()
 
     def namepick():
         screen = turtle.Screen()
@@ -307,7 +394,7 @@ class screens:
         title.penup()
         title.goto(0, 150)
         title.color("white")
-        title.write("Enter A Name", align="center", font=("Futura", 64, "bold"))
+        title.write("What's ur name", align="center", font=("Comic Sans MS", 64, "bold"))
 
         name = screen.textinput("NIM", "Enter Username:                                                                                                          ")
         screens.set_name(name)        
@@ -351,7 +438,7 @@ class screens:
         title.penup()
         title.goto(0, 150)
         title.color("white")
-        title.write("Monopoly", align="center", font=("Futura", 64, "bold"))
+        title.write("Monopoly", align="center", font=("Comic Sans MS", 64, "bold"))
 
         def draw_button(label, x, y):
             button.penup()
@@ -365,7 +452,7 @@ class screens:
             button.penup()
             button.goto(x + 100, y - 43)
             button.color("white")
-            button.write(label, align="center", font=("Futura", 26, "bold"))
+            button.write(label, align="center", font=("Comic Sans MS", 26, "bold"))
 
         def on_screen_click(x, y):
             if -200 <= x <= 220: 
