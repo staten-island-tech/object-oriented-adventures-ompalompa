@@ -1,15 +1,16 @@
 import random
 import time
 import json
+import os
 locations = open("./monopolyboard.json", encoding="utf8")
 data = json.load(locations)
 
 PlayerCount = []
 
-PlayersNumber = input("How many players are participating in the game?: ")
+PlayersNumber = int(input("How many players are participating in the game?: "))
 
 for x in range(PlayersNumber):
-    Player = int(input("Input Player Name: "))
+    Player = input("Input Player Name: ")
     PlayerCount.append(Player)
 print(f"The Current Players Are: {PlayerCount}")
 
