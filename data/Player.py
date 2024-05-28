@@ -84,7 +84,15 @@ class Playeroptions:
                     print(f"There are now {contestants} left in the game.")
                 elif self.mode == 'singleplayer':
                     print(f"There are {contestants} left in the game. The game will now end.")
+import sys
+import time
+def slowprint(s):
+	for c in s + '\n':
+		sys.stdout.write(c)
+		sys.stdout.flush()
+		time.sleep(1./10)
+slowprint("this this writen slowly in my terminal")
 
 
-player = Playeroptions("Player 1", "./monopolyboard.json")
-player.roll_dice()
+"""player = Playeroptions("Player 1", "./monopolyboard.json")
+player.roll_dice()"""
