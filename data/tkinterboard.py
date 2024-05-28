@@ -1,6 +1,5 @@
 import tkinter as tk
 from PIL import Image, ImageTk
-from functools import partial
 
 class TkinterBoard:
     def __init__(self, root, image_path):
@@ -127,14 +126,21 @@ class TkinterBoard:
         self.setup_screen(x)
         self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Credits", font=("Comic Sans MS", 80, "bold"), fill="white")
 
-        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 90, text="Jonathan Ou", font=("Comic Sans MS", 40), fill="white")
-        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 90, text="Aaron Li", font=("Comic Sans MS", 40), fill="white")
-        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 90, text="Alvin Huang", font=("Comic Sans MS",40), fill="white")
+        names = [
+            ("Jonathan Ou"),
+            ("Aaron Li"),
+            ("Alvin Huang")
+        ]
+        
+        for name in names:
 
-    def next(self):
+            self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text=name, font=("Comic Sans MS", 80, "bold"), fill="white")
+    
+
+    def next(self,event):
         "eeeeeeee"
 
-    def back(self):
+    def back(self,event):
         "eeeeeee"
     
     def quit(self):
