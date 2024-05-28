@@ -88,7 +88,7 @@ class TkinterBoard:
         self.clear_screen()
         x = "Game"
         self.setup_screen(x)
-        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Select a Game Type", font=("Comic Sans MS", 80, "bold"), fill=None)
+        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Select a Game Type", font=("Comic Sans MS", 80, "bold"), fill="white")
 
         button_font = ("Comic Sans MS", 40, "bold")
 
@@ -102,7 +102,7 @@ class TkinterBoard:
         self.clear_screen()
         x = "Rules"
         self.setup_screen(x)
-        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Rules", font=("Comic Sans MS", 80, "bold"), fill=None)
+        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Rules", font=("Comic Sans MS", 80, "bold"), fill="white")
 
         frame = tk.Frame(self.canvas, fill=None)
         frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=self.root.winfo_screenwidth() * 0.8, height=self.root.winfo_screenheight() * 0.6)
@@ -122,8 +122,21 @@ class TkinterBoard:
 
 
     def credits(self):
-        print("credit")
+        self.clear_screen()
+        x = "Credits"
+        self.setup_screen(x)
+        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Credits", font=("Comic Sans MS", 80, "bold"), fill="white")
 
+        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 90, text="Jonathan Ou", font=("Comic Sans MS", 40), fill="white")
+        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 90, text="Aaron Li", font=("Comic Sans MS", 40), fill="white")
+        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 90, text="Alvin Huang", font=("Comic Sans MS",40), fill="white")
+
+    def next(self):
+        "eeeeeeee"
+
+    def back(self):
+        "eeeeeee"
+    
     def quit(self):
         self.root.quit()
 
