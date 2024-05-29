@@ -35,6 +35,9 @@ class TkinterBoard:
         self.makebutton("Credits", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 + 80, self.credits)
         self.makebutton("Quit", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 + 160, self.quit)
 
+        self.root.bind("<Right>", lambda event: self.name())
+        self.root.bind("<Up>", lambda event: self.name())
+
     def makebutton(self, text, font, x, y, command):
         text_id = self.canvas.create_text(x, y, text=text, font=font, fill="white")
         self.canvas.tag_bind(text_id, "<Button-1>", lambda event: command())
@@ -46,10 +49,15 @@ class TkinterBoard:
         button_font = ("Comic Sans MS", 20, "bold")
         self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Enter A Name", font=("Comic Sans MS", 80, "bold"), fill="white")
 
-        self.name = tk.Entry(self.root, font=("Comic Sans MS", 20), bg="light gray")
-        self.name.place(relx=0.5,rely=0.3, anchor=tk.CENTER)
+        self.username = tk.Entry(self.root, font=("Comic Sans MS", 20), bg="light gray")
+        self.username.place(relx=0.5,rely=0.3, anchor=tk.CENTER)
 
         self.makebutton("Enter", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 - 80, command=self.nametoken)
+
+        self.root.bind("<Left>", lambda event: self.mainscreen())
+        self.root.bind("<Down>", lambda event: self.mainscreen())
+        self.root.bind("<Right>", lambda event: self.game("name"))
+        self.root.bind("<Up>", lambda event: self.game("name"))
 
     def tokencharacter(self):
         self.clear_screen()
@@ -83,7 +91,12 @@ class TkinterBoard:
             self.canvas.tag_bind(image_id, "<Button-1>", lambda event, token=name: self.tokentoken(token))
             self.canvas.tag_bind(text_id, "<Button-1>", lambda event, token=name: self.tokentoken(token))
 
-    def game(self, name):
+        self.root.bind("<Left>", lambda event: self.game("name"))
+        self.root.bind("<Down>", lambda event: self.game("name"))
+        self.root.bind("<Right>", lambda event: self.mainscreen())
+        self.root.bind("<Up>", lambda event: self.mainscreen())
+
+    def game(self, gt):
         self.clear_screen()
         x = "Game"
         self.setup_screen(x)
@@ -91,11 +104,13 @@ class TkinterBoard:
 
         button_font = ("Comic Sans MS", 40, "bold")
 
-        self.makebutton("Singleplayer", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 - 80, lambda: self.gametoken(name))
-        self.makebutton("Multiplayer", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 - 250, lambda: self.gametoken(name))
-        self.selected_game = name
+        self.makebutton("Singleplayer", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 - 80, lambda: self.gametoken("Singleplayer"))
+        self.makebutton("Multiplayer", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 - 250, lambda: self.gametoken("Multiplyer"))
 
-
+        self.root.bind("<Left>", lambda event: self.name())
+        self.root.bind("<Down>", lambda event: self.name())
+        self.root.bind("<Right>", lambda event: self.tokencharacter())
+        self.root.bind("<Up>", lambda event: self.tokencharacter())
  
     def rules(self):
         self.clear_screen()
@@ -119,6 +134,8 @@ class TkinterBoard:
         text_widget.insert(tk.END, rules_text)
         text_widget.config(state=tk.DISABLED)
 
+        self.root.bind("<Left>", lambda event: self.mainscreen())
+        self.root.bind("<Down>", lambda event: self.mainscreen())
 
     def credits(self):
         self.clear_screen()
@@ -131,29 +148,26 @@ class TkinterBoard:
             ("Aaron Li"),
             ("Alvin Huang")
         ]
-        
-        for name in names:
-
-            self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text=name, font=("Comic Sans MS", 80, "bold"), fill="white")
-    
-
-    def next(self,event):
-        "eeeeeeee"
-
-    def back(self,event):
-        "eeeeeee"
+        start_y = self.root.winfo_screenheight() / 10 + 250
+        y_offset = 100
+        for i, name in enumerate(names):
+            y_position = start_y + i * y_offset
+            self.canvas.create_text(self.root.winfo_screenwidth() / 2, y_position, text=name, font=("Comic Sans MS", 40), fill="white")
+ 
+        self.root.bind("<Left>", lambda event: self.mainscreen())
+        self.root.bind("<Down>", lambda event: self.mainscreen())
     
     def quit(self):
         self.root.quit()
 
     def nametoken(self):
-        name=self.name.get()
-        print(name)
-        self.game(name)
+        user=self.username.get()
+        print(user)
+        self.game(None)
 
-    def gametoken(self, game):
-        gt = self.selected_game
-        print(gt)
+    def gametoken(self, gt):
+        self.selected_game = gt
+        print(self.selected_game)
         self.tokencharacter()
 
     def tokentoken(self, token):
