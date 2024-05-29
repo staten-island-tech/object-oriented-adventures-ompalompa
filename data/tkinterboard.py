@@ -24,6 +24,7 @@ class TkinterBoard:
         self.canvas.create_image(0, 0, image=self.tk_image, anchor="nw")
 
     def mainscreen(self):
+        self.clear_screen()
         x = "Monopoly"
         self.setup_screen(x)
         self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Monopoly", font=("Comic Sans MS", 80, "bold"), fill="white")
@@ -93,8 +94,8 @@ class TkinterBoard:
 
         self.root.bind("<Left>", lambda event: self.game("name"))
         self.root.bind("<Down>", lambda event: self.game("name"))
-        self.root.bind("<Right>", lambda event: self.mainscreen())
-        self.root.bind("<Up>", lambda event: self.mainscreen())
+        self.root.bind("<Right>", lambda event: self.confirmscreen())
+        self.root.bind("<Up>", lambda event: self.confirmscreen())
 
     def game(self, gt):
         self.clear_screen()
@@ -111,7 +112,33 @@ class TkinterBoard:
         self.root.bind("<Down>", lambda event: self.name())
         self.root.bind("<Right>", lambda event: self.tokencharacter())
         self.root.bind("<Up>", lambda event: self.tokencharacter())
+
+    def confirmscreen(self, token):
+        self.clear_screen()
+        x = "Confirmaation Screen"
+        self.setup_screen(x)
+        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text='Is this the correct selection? (This can not be changed after you press "Submit")', font=("Comic Sans MS", 30, "bold"), fill="white")
+        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10 +60, text='Or press left arrow to return', font=("Comic Sans MS", 30, "bold"), fill="white")
+        selected = [
+            (f"Username: {self.user}"),
+            (f"Game Type: {self.selected_game}"),
+            (f"Token: {self.token}")
+        ]
+
+        start_y = self.root.winfo_screenheight() / 10 + 250
+        y_offset = 100
+        for i, name in enumerate(selected):
+            y_position = start_y + i * y_offset
+            self.canvas.create_text(self.root.winfo_screenwidth() / 2, y_position, text=name, font=("Comic Sans MS", 20), fill="white")
  
+        self.root.bind("<Left>", lambda event: self.tokencharacter())
+        self.root.bind("<Down>", lambda event: self.tokencharacter())
+        button_font = ("Comic Sans MS", 40, "bold")
+        self.makebutton("Submit", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 + 160, self.submitted)
+ 
+    def submitted(self):
+        print("HELOO(*REWUIDJS)")
+
     def rules(self):
         self.clear_screen()
         x = "Rules"
@@ -161,8 +188,8 @@ class TkinterBoard:
         self.root.quit()
 
     def nametoken(self):
-        user=self.username.get()
-        print(user)
+        self.user=self.username.get()
+        print(self.user)
         self.game(None)
 
     def gametoken(self, gt):
@@ -171,7 +198,9 @@ class TkinterBoard:
         self.tokencharacter()
 
     def tokentoken(self, token):
+        self.token = token
         print(f"{token}")
+        self.confirmscreen(None)
         
 
 
