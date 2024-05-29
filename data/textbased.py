@@ -1,19 +1,11 @@
 import random
 import time
 import json
-import os
+import sys
 locations = open("./monopolyboard.json", encoding="utf8")
 data = json.load(locations)
 
 PlayerCount = []
-
-PlayersNumber = int(input("How many players are participating in the game?: "))
-
-for x in range(PlayersNumber):
-    Player = input("Input Player Name: ")
-    PlayerCount.append(Player)
-print(f"The Current Players Are: {PlayerCount}")
-
 class Playeroptions:
     def __init__(self, name, data_path, character=None):
         self.name = name
@@ -42,6 +34,31 @@ class Playeroptions:
             print(f"Second roll: {y}")
             print(f"{player}'s new location is {new_location}")
 
+PlayersNumber = int(input("How many players are participating in the game?: "))
+while PlayersNumber < 1 or PlayersNumber > 5:
+    print("Enter another number please:")
+    PlayersNumber = int(input("How many players are participating in the game?: "))
+
+for x in range(PlayersNumber):
+    Player = input("Input Player Name: ")
+    PlayerCount.append(Player)
+
 for x in PlayerCount:
-    player = Playeroptions(x, "./monopolyboard.json")
-    player.roll_dice(x)
+    if PlayerCount.count(x) > 1:
+        PlayerCount.remove(x)
+        removing = True
+print(PlayerCount)
+if removing == True:
+    print("A player has been removed because of a duplicate username.")
+    continuation = input("Would you like to add a different user, continue the game, or restart the game? 1|2|3: ")
+    if continuation.upper() == '1':
+        for x in PlayerCount:
+            Player = input("Input Player Name: ")
+        PlayerCount.append(Player)
+    elif continuation.upper() == '2':
+        player = Playeroptions(x, "./monopolyboard.json")
+        player.roll_dice(x)
+    elif continuation.upper() == '3':
+        sys.exit()
+        
+        
