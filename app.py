@@ -1,4 +1,3 @@
-from data.board import screens
+from data.tkinterboard import TkinterBoard
 
-screens.mainscreen()
-print(screens.name,screens.gt,screens.ct)
+TkinterBoard.self.mainscreen()

@@ -34,10 +34,34 @@ class TkinterBoard:
         self.makebutton("Play", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 - 80, self.name)
         self.makebutton("Rules", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2, self.rules)
         self.makebutton("Credits", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 + 80, self.credits)
-        self.makebutton("Quit", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 + 160, self.quit)
+        self.makebutton("Controls", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 + 160, self.controls)
+        self.makebutton("Quit", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 + 240, self.quit)
 
         self.root.bind("<Right>", lambda event: self.name())
         self.root.bind("<Up>", lambda event: self.name())
+
+    def controls(self):
+        self.clear_screen()
+        x = "Controls"
+        self.setup_screen(x)
+        button_font = ("Comic Sans MS", 20, "bold")
+        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Enter A Name", font=("Comic Sans MS", 80, "bold"), fill="white")
+
+        selected = [
+            ("Left/Down Arrows: Back"),
+            ("Right/Up Arrows: Next")
+        ]
+
+        start_y = self.root.winfo_screenheight() / 10 + 250
+        y_offset = 100
+        for i, name in enumerate(selected):
+            y_position = start_y + i * y_offset
+            self.canvas.create_text(self.root.winfo_screenwidth() / 2, y_position, text=name, font=("Comic Sans MS", 20), fill="white")
+ 
+        self.root.bind("<Left>", lambda event: self.mainscreen())
+        self.root.bind("<Down>", lambda event: self.mainscreen())
+
+
 
     def makebutton(self, text, font, x, y, command):
         text_id = self.canvas.create_text(x, y, text=text, font=font, fill="white")
