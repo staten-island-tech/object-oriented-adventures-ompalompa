@@ -3,6 +3,12 @@ import time
 import json
 locations = open("./monopolyboard.json", encoding="utf8")
 data = json.load(locations)
+import sys
+def slowprint(s):
+	for c in s + '\n':
+		sys.stdout.write(c)
+		sys.stdout.flush()
+		time.sleep(1./10)
 
 class Playeroptions:
     def __init__(self, name, data_path, character=None):
@@ -84,14 +90,10 @@ class Playeroptions:
                     print(f"There are now {contestants} left in the game.")
                 elif self.mode == 'singleplayer':
                     print(f"There are {contestants} left in the game. The game will now end.")
-import sys
-import time
-def slowprint(s):
-	for c in s + '\n':
-		sys.stdout.write(c)
-		sys.stdout.flush()
-		time.sleep(1./10)
-slowprint("this this writen slowly in my terminal")
+
+slowprint("Welcome to Monopoly! Lets have some Fun!")
+characters = []
+
 
 
 """player = Playeroptions("Player 1", "./monopolyboard.json")
