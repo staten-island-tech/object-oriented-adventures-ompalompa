@@ -44,38 +44,17 @@ for x in range(PlayersNumber):
     PlayerCount.append(Player)
 
 for x in PlayerCount:
-    if PlayerCount.count(x) > 1:
+    while PlayerCount.count(x) > 1:
         PlayerCount.remove(x)
         removing = True
-print(PlayerCount)
+        print("A player has been removed because of a duplicate username.")
 while removing == True:
-    print("A player has been removed because of a duplicate username.")
-<<<<<<< Updated upstream
-    while removing == True:
-        continuation = input("Would you like to add a different user, continue the game, or restart the game? 1|2|3: ")
-        if continuation.upper() == '1':
-            for x in PlayerCount:
-                Player = input("Input Player Name: ")
-                PlayerCount.append(Player)
-                break
-        elif continuation.upper() == '2':
-            player = Playeroptions(x, "./monopolyboard.json")
-            player.roll_dice(x)
-            break
-        elif continuation.upper() == '3':
-            removing == False
-            sys.exit()
-        else:
-            print("Your answer is invalid, please retry.")
-            
-player = Playeroptions(x, "./monopolyboard.json")
-player.roll_dice(x)
-=======
     continuation = input("Would you like to add a different user, continue the game, or restart the game? 1|2|3: ")
     if continuation.upper() == '1':
         for x in PlayerCount:
             Player = input("Input Player Name: ")
             PlayerCount.append(Player)
+            print(PlayerCount)
             break
     elif continuation.upper() == '2':
         player = Playeroptions(x, "./monopolyboard.json")
@@ -87,5 +66,4 @@ player.roll_dice(x)
     else:
         print("Your answer is invalid, please retry.")
         
->>>>>>> Stashed changes
         
