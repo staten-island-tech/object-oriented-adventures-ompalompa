@@ -42,7 +42,7 @@ while PlayersNumber < 1 or PlayersNumber > 5:
 for x in range(PlayersNumber):
     Player = input("Input Player Name: ")
     PlayerCount.append(Player)
-
+removing = False
 for x in PlayerCount:
     while PlayerCount.count(x) > 1:
         PlayerCount.remove(x)
@@ -54,7 +54,6 @@ while removing == True:
         for x in PlayerCount:
             Player = input("Input Player Name: ")
             PlayerCount.append(Player)
-            print(PlayerCount)
             break
     elif continuation.upper() == '2':
         player = Playeroptions(x, "./monopolyboard.json")
@@ -65,5 +64,3 @@ while removing == True:
         sys.exit()
     else:
         print("Your answer is invalid, please retry.")
-        
-        
