@@ -81,8 +81,8 @@ class TkinterBoard:
 
         self.root.bind("<Left>", lambda event: self.mainscreen())
         self.root.bind("<Down>", lambda event: self.mainscreen())
-        self.root.bind("<Right>", lambda event: self.game("name"))
-        self.root.bind("<Up>", lambda event: self.game("name"))
+        self.root.bind("<Right>", lambda event: self.tokencharacter())
+        self.root.bind("<Up>", lambda event: self.tokencharacter())
 
     def tokencharacter(self):
         self.clear_screen()
@@ -116,26 +116,10 @@ class TkinterBoard:
             self.canvas.tag_bind(image_id, "<Button-1>", lambda event, token=name: self.tokentoken(token))
             self.canvas.tag_bind(text_id, "<Button-1>", lambda event, token=name: self.tokentoken(token))
 
-        self.root.bind("<Left>", lambda event: self.game("name"))
-        self.root.bind("<Down>", lambda event: self.game("name"))
-        self.root.bind("<Right>", lambda event: self.confirmscreen())
-        self.root.bind("<Up>", lambda event: self.confirmscreen())
-
-    def game(self, gt):
-        self.clear_screen()
-        x = "Game"
-        self.setup_screen(x)
-        self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10, text="Select a Game Type", font=("Comic Sans MS", 80, "bold"), fill="white")
-
-        button_font = ("Comic Sans MS", 40, "bold")
-
-        self.makebutton("Singleplayer", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 - 80, lambda: self.gametoken("Singleplayer"))
-        self.makebutton("Multiplayer", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 - 250, lambda: self.gametoken("Multiplyer"))
-
         self.root.bind("<Left>", lambda event: self.name())
         self.root.bind("<Down>", lambda event: self.name())
-        self.root.bind("<Right>", lambda event: self.tokencharacter())
-        self.root.bind("<Up>", lambda event: self.tokencharacter())
+        self.root.bind("<Right>", lambda event: self.confirmscreen())
+        self.root.bind("<Up>", lambda event: self.confirmscreen())
 
     def confirmscreen(self, token):
         self.clear_screen()
@@ -145,7 +129,6 @@ class TkinterBoard:
         self.canvas.create_text(self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 10 +60, text='Or press left arrow to return', font=("Comic Sans MS", 30, "bold"), fill="white")
         selected = [
             (f"Username: {self.user}"),
-            (f"Game Type: {self.selected_game}"),
             (f"Token: {self.token}")
         ]
 
@@ -161,7 +144,11 @@ class TkinterBoard:
         self.makebutton("Submit", button_font, self.root.winfo_screenwidth() / 2, self.root.winfo_screenheight() / 2 + 160, self.submitted)
  
     def submitted(self):
-        print("HELOO(*REWUIDJS)")
+        with open("selected_token.txt", "w") as file:
+            file.write(self.token)
+        self.root.destroy()
+        import subprocess
+        subprocess.Popen(["python3", "data/tkinterplayer.py"])
 
     def rules(self):
         self.clear_screen()
@@ -214,20 +201,14 @@ class TkinterBoard:
     def nametoken(self):
         self.user=self.username.get()
         print(self.user)
-        self.game(None)
-
-    def gametoken(self, gt):
-        self.selected_game = gt
-        print(self.selected_game)
         self.tokencharacter()
 
     def tokentoken(self, token):
         self.token = token
         print(f"{token}")
         self.confirmscreen(None)
+        self.playertoken = self.token
         
-
-
 if __name__ == "__main__":
     root = tk.Tk()
     app = TkinterBoard(root, "data/images/b1.png")

@@ -23,14 +23,14 @@
         "if pass go": 200
     },
     {
-        "name": "Advance to the nearest Railroad",
+        "name": "Advance token to nearest Railroad",
         "action": "advance",
         "position": [5,15,25,35]
     },
     {
         "name": "Advance token to nearest Utility",
         "action": "advance",
-        "position": [12,20]
+        "position": [12,28]
     },
     {
         "name": "Bank pays you dividend",
@@ -78,5 +78,35 @@
         "name": "Your building loan matures",
         "action": "collect",
         "amount": 150
+    },
+    {
+        "name": "Advance to the nearest Orange Property",
+        "action": "advance",
+        "position": [6, 8, 9],
+        "if pass go": 200
+    },
+    {
+        "name": "Advance to the nearest Green Property",
+        "action": "advance",
+        "position": [11, 13, 14],
+        "if pass go": 200
+    },
+    {
+        "name": "Advance to the nearest Red Property",
+        "action": "advance",
+        "position": [16, 18, 19],
+        "if pass go": 200
+    },
+    {
+        "name": "Advance token to the nearest Yellow Property",
+        "action": "advance",
+        "position": [21, 23, 24],
+        "if pass go": 200
+    },
+    {
+        "name": "Advance token to the nearest Utility",
+        "action": "advance",
+        "position": [12, 28],
+        "if pass go": 200
     }
 ]

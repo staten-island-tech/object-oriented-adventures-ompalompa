@@ -11,7 +11,7 @@
         "amount": 200
     },
     {
-        "name": "Dcotor's fee",
+        "name": "Doctor's fee",
         "action": "pay",
         "amount": 50
     },
@@ -80,5 +80,25 @@
         "name": "Inherit",
         "action": "collect",
         "amount": 100
+    },
+    {
+        "name": "You have won a crossword competition",
+        "action": "collect",
+        "amount": 50
+    },
+    {
+        "name": "Receive a refund for overpaid taxes",
+        "action": "collect",
+        "amount": 25
+    },
+    {
+        "name": "You have been selected for a jury duty",
+        "action": "pay",
+        "amount": 40
+    },
+    {
+        "name": "You receive a bonus for good work",
+        "action": "collect",
+        "amount": 75
     }
 ]
