@@ -13,10 +13,10 @@ class TkinterPlayer:
         self.properties = []
         self.chance_cards = []
         self.community_chest_cards = []
-        self.app = TkinterBoard(root, "data/images/b1.png")  
+        self.app = TkinterBoard(root, "data/images/b1.png")    
 
     def setup_screen(self):
-        self.root.attributes('-fullscreen', True)
+        self.root.attributes('-fullscreen', False)
         original_image = Image.open(self.image_path)
         window_height = self.root.winfo_screenheight()
         window_width = window_height
@@ -42,12 +42,20 @@ class TkinterPlayer:
         selected_tokens = random.sample(tokens, 3)
         token1, token2, token3 = selected_tokens
 
+        with open("selected_token.txt", "r") as file:
+            player_token_name = file.read().strip()
+            player_token_path = next(path for name, path in zip(["Battleship", "Race Car", "Top Hat", "Scottish Terrier", "Cat", "Penguin", "Rubber Ducky", "Thimble"], tokens) if name == player_token_name)
+        
         player_positions = {
-            "Player": (self.root.winfo_screenwidth() - 100, self.root.winfo_screenheight() - 100),
-            "Bot 1": (self.root.winfo_screenwidth(), self.root.winfo_screenheight()),
-            "Bot 2": (self.root.winfo_screenwidth() - 400, self.root.winfo_screenheight() - 100),
-            "Bot 3": (self.root.winfo_screenwidth() - 550, self.root.winfo_screenheight() - 100)
+            "Player": (self.root.winfo_screenwidth() - 620, self.root.winfo_screenheight() - 100),
+            "Bot 1": (self.root.winfo_screenwidth() -580, self.root.winfo_screenheight() -100 ),
+            "Bot 2": (self.root.winfo_screenwidth() - 620, self.root.winfo_screenheight() - 60),
+            "Bot 3": (self.root.winfo_screenwidth() - 580, self.root.winfo_screenheight() - 60)
         }
+
+        poriginal_image = Image.open(player_token_path)
+        presized_image = poriginal_image.resize((50, 50), Image.Resampling.LANCZOS)
+        self.player_token_image = ImageTk.PhotoImage(presized_image)
 
         for i, (path) in enumerate(selected_tokens):
             original_image = Image.open(path)
@@ -56,7 +64,7 @@ class TkinterPlayer:
             self.token_images.append(tk_image)
 
         player_token_images = {
-            "Player": self.token_images[0],
+            "Player": self.player_token_image,
             "Bot 1": self.token_images[0],
             "Bot 2": self.token_images[1],
             "Bot 3": self.token_images[2]
@@ -73,6 +81,7 @@ class TkinterPlayer:
 
 if __name__ == "__main__":
     root = tk.Tk()
+    root.title("Monopoly Controls")
     app = TkinterPlayer(root, "data/images/boards/monopony.gif")
     app.setup_screen()
     root.mainloop()

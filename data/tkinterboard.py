@@ -149,6 +149,7 @@ class TkinterBoard:
         self.root.destroy()
         import subprocess
         subprocess.Popen(["python3", "data/tkinterplayer.py"])
+        subprocess.Popen(["python3", "data/tkinterlb.py"])
 
     def rules(self):
         self.clear_screen()
