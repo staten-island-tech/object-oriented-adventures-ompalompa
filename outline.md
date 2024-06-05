@@ -9,3 +9,11 @@ not a ad
 
 https://www.geeksforgeeks.org/how-to-play-sounds-in-python-with-tkinter/?ref=ml_lbp
 
+
+
+## Tkinter
+
+### Board
+- 
+
+### Player
