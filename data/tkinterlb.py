@@ -1,12 +1,16 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 import random, time
+from tkinterboard import TkinterBoard
 
 class TkinterLb:
     def __init__(self, root, image_path):
         self.root = root
         self.image_path = image_path
         self.history = []
+        self.playerorder = []
+        self.app1 = TkinterBoard(root, "data/images/b1.png")
+        
 
     def clear_screen(self):
         for widget in self.root.winfo_children():
@@ -55,13 +59,15 @@ class TkinterLb:
             button_font = ("Comic Sans MS", 20, "bold")
             window_height = self.root.winfo_screenheight()
             window_width = self.root.winfo_screenwidth() - window_height
-            players = ["Player", "Bot 1", "Bot 2", "Bot 3"]
+            self.canvas.create_text(window_width / 2, window_height / 10, text="Controller", font=("Comic Sans MS", 80, "bold"), fill="white")
+            players = ["self.app1.user", "Bot 1", "Bot 2", "Bot 3"]
             max_roll = 0
             winning_player = None
 
             while True:
                 self.clear_screen()
                 self.setup_screen()
+                self.canvas.create_text(window_width / 2, window_height / 10, text="Controller", font=("Comic Sans MS", 80, "bold"), fill="white")
                 rolls = []
                 initial_y = window_height // 2 - 200
                 y_increment = 50
@@ -91,7 +97,16 @@ class TkinterLb:
                     break
 
             self.canvas.create_text(window_width / 2, initial_y + y_increment, text=f"{winning_player} wins with {max_roll}!", font=("Comic Sans MS", 20), fill="white")
+            self.playerorder.append(winning_player)
             self.makebutton("Back", button_font, window_width / 2, window_height / 2 + 160, command=self.buttonscreen)
+
+    def diceroll(self):
+        e
+    
+    def ownership(self):
+        e
+
+    def 
 
 if __name__ == "__main__":
     root = tk.Tk()

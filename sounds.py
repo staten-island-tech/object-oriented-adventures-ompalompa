@@ -8,7 +8,7 @@ root.geometry("500x400")
 
 # making function 
 def play():
-	playsound('1.mp3')
+	playsound('')
 
 # title on the screen you can modify it 
 title=Label(root,text="GeeksforGeeks",bd=9,relief=GROOVE,

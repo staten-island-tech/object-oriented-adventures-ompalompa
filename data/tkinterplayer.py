@@ -81,7 +81,7 @@ class TkinterPlayer:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    root.title("Monopoly Controls")
+    root.title("Monopoly Board")
     app = TkinterPlayer(root, "data/images/boards/monopony.gif")
     app.setup_screen()
     root.mainloop()
