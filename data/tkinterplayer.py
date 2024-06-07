@@ -18,7 +18,7 @@ class TkinterPlayer:
     def setup_screen(self):
         self.root.attributes('-fullscreen', False)
         original_image = Image.open(self.image_path)
-        window_height = self.root.winfo_screenheight()
+        window_height = self.root.winfo_screenheight() -110
         window_width = window_height
         resized_image = original_image.resize((window_width, window_height), Image.Resampling.LANCZOS)
         self.tk_image = ImageTk.PhotoImage(resized_image)
@@ -47,19 +47,19 @@ class TkinterPlayer:
             player_token_path = next(path for name, path in zip(["Battleship", "Race Car", "Top Hat", "Scottish Terrier", "Cat", "Penguin", "Rubber Ducky", "Thimble"], tokens) if name == player_token_name)
         
         player_positions = {
-            "Player": (self.root.winfo_screenwidth() - 620, self.root.winfo_screenheight() - 100),
-            "Bot 1": (self.root.winfo_screenwidth() -580, self.root.winfo_screenheight() -100 ),
-            "Bot 2": (self.root.winfo_screenwidth() - 620, self.root.winfo_screenheight() - 60),
-            "Bot 3": (self.root.winfo_screenwidth() - 580, self.root.winfo_screenheight() - 60)
+            "Player": (self.root.winfo_screenwidth() - 730, self.root.winfo_screenheight() - 210),
+            "Bot 1": (self.root.winfo_screenwidth() -690, self.root.winfo_screenheight() -210 ),
+            "Bot 2": (self.root.winfo_screenwidth() - 730, self.root.winfo_screenheight() - 170),
+            "Bot 3": (self.root.winfo_screenwidth() - 690, self.root.winfo_screenheight() - 170)
         }
 
         poriginal_image = Image.open(player_token_path)
-        presized_image = poriginal_image.resize((50, 50), Image.Resampling.LANCZOS)
+        presized_image = poriginal_image.resize((40, 40), Image.Resampling.LANCZOS)
         self.player_token_image = ImageTk.PhotoImage(presized_image)
 
         for i, (path) in enumerate(selected_tokens):
             original_image = Image.open(path)
-            resized_image = original_image.resize((50, 50), Image.Resampling.LANCZOS)
+            resized_image = original_image.resize((40, 40), Image.Resampling.LANCZOS)
             tk_image = ImageTk.PhotoImage(resized_image)
             self.token_images.append(tk_image)
 

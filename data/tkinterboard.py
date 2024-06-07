@@ -1,11 +1,14 @@
 import tkinter as tk
 from PIL import Image, ImageTk
+from playsound import playsound
 
 class TkinterBoard:
     def __init__(self, root, image_path):
         self.root = root
         self.image_path = image_path
         self.token_images = []
+        self.properties = []
+        self.balance = 1500
 
     def clear_screen(self):
         for widget in self.root.winfo_children():
@@ -22,6 +25,8 @@ class TkinterBoard:
         self.canvas = tk.Canvas(self.root, width=window_width, height=window_height)
         self.canvas.pack(fill="both", expand=True)
         self.canvas.create_image(0, 0, image=self.tk_image, anchor="nw")
+
+        playsound('data/monopoly.mp4')
 
     def mainscreen(self):
         self.clear_screen()

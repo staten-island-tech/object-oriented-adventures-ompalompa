@@ -8,7 +8,7 @@ root.geometry("500x400")
 
 # making function 
 def play():
-	playsound('')
+	playsound('data/monopoly.mp4')
 
 # title on the screen you can modify it 
 title=Label(root,text="GeeksforGeeks",bd=9,relief=GROOVE,

@@ -1,7 +1,7 @@
 import random
 import time
 import json
-locations = open("./monopolyboard.json", encoding="utf8")
+locations = open("data/json/monopolyboard.json", encoding="utf8")
 data = json.load(locations)
 
 PlayerCount = []
