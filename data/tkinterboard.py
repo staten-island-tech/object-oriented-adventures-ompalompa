@@ -9,6 +9,7 @@ class TkinterBoard:
         self.token_images = []
         self.properties = []
         self.balance = 1500
+        playsound('data/monopoly.mp4')
 
     def clear_screen(self):
         for widget in self.root.winfo_children():
@@ -26,7 +27,6 @@ class TkinterBoard:
         self.canvas.pack(fill="both", expand=True)
         self.canvas.create_image(0, 0, image=self.tk_image, anchor="nw")
 
-        playsound('data/monopoly.mp4')
 
     def mainscreen(self):
         self.clear_screen()
@@ -153,8 +153,8 @@ class TkinterBoard:
             file.write(self.token)
         self.root.destroy()
         import subprocess
-        subprocess.Popen(["python3", "data/tkinterplayer.py"])
-        subprocess.Popen(["python3", "data/tkinterlb.py"])
+        subprocess.Popen(["python", "data/tkinterplayer.py"])
+        subprocess.Popen(["python", "data/tkinterlb.py"])
 
     def rules(self):
         self.clear_screen()
