@@ -17,3 +17,8 @@ https://www.geeksforgeeks.org/how-to-play-sounds-in-python-with-tkinter/?ref=ml_
 - 
 
 ### Player
+
+
+
+install homebrew
+https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage
