@@ -50,6 +50,18 @@ class Playeroptions:
             self.balance -= rentprice
             print(f"You paid ${rentprice} for rent")
 
+    def intro_roll_dice(self,characterss):
+        e = []
+        for x in characterss:
+            y = random.randint(1,6)
+            z = random.randint(1,6)
+            a = y + z
+            x.number = a
+            e.append(x.number)
+        print = (f"{x} rolled a!")
+        slowprint(print)
+        slowprint(f"Did you roll a {max(e)}, guess what you get to go first! Turn order is in the order of the greatest number rolled to the least!")
+        o = sorted(e)
     def roll_dice(self):
         x = random.randint(1, 6)
         y = random.randint(1, 6)
@@ -93,8 +105,15 @@ class Playeroptions:
 
 slowprint("Welcome to Monopoly! Lets have some Fun!")
 characters = []
-
-
-
-"""player = Playeroptions("Player 1", "./monopolyboard.json")
-player.roll_dice()"""
+Add = True
+contestants = 0
+while Add == True:
+    slowprint("Who's playing?")
+    newplayer = input(":")
+    characters.append(newplayer)
+    slowprint("Would you like to add more players? Y/N")
+    more = input(":")
+    if more == N:
+        Add = False
+player = Playeroptions("Player 1","./monopolyboard.json")
+player.intro_roll_dice
