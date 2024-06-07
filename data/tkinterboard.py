@@ -6,6 +6,8 @@ class TkinterBoard:
         self.root = root
         self.image_path = image_path
         self.token_images = []
+        self.properties = []
+        self.balance = 1500
 
     def clear_screen(self):
         for widget in self.root.winfo_children():

@@ -4,7 +4,8 @@
         "position": 0,
         "type": "corner",
         "action": "collect",
-        "amount": 200
+        "amount": 200,
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() - 50"]
     },
     {
         "name": "Mediterranean Avenue",
@@ -14,12 +15,14 @@
         "type": "property",
         "color": "brown",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 150", "self.root.winfo_screenheight() - 50"]
     },
     {
         "name": "Community Chest",
         "position": 2,
-        "type": "community_chest"
+        "type": "community_chest",
+        "coordinates": ["self.root.winfo_screenwidth() - 250", "self.root.winfo_screenheight() - 50"]
     },
     {
         "name": "Baltic Avenue",
@@ -29,20 +32,23 @@
         "type": "property",
         "color": "brown",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 350", "self.root.winfo_screenheight() - 50"]
     },
     {
         "name": "Income Tax",
         "position": 4,
         "type": "tax",
-        "tax_amount": 200
+        "tax_amount": 200,
+        "coordinates": ["self.root.winfo_screenwidth() - 450", "self.root.winfo_screenheight() - 50"]
     },
     {
         "name": "Reading Railroad",
         "position": 5,
         "price": 200,
         "type": "property",
-        "color": "railroad"
+        "color": "railroad",
+        "coordinates": ["self.root.winfo_screenwidth() - 550", "self.root.winfo_screenheight() - 50"]
     },
     {
         "name": "Oriental Avenue",
@@ -52,12 +58,14 @@
         "type": "property",
         "color": "light_blue",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 650", "self.root.winfo_screenheight() - 50"]
     },
     {
         "name": "Chance",
         "position": 7,
-        "type": "chance"
+        "type": "chance",
+        "coordinates": ["self.root.winfo_screenwidth() - 750", "self.root.winfo_screenheight() - 50"]
     },
     {
         "name": "Vermont Avenue",
@@ -67,7 +75,8 @@
         "type": "property",
         "color": "light_blue",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 850", "self.root.winfo_screenheight() - 50"]
     },
     {
         "name": "Connecticut Avenue",
@@ -77,17 +86,20 @@
         "type": "property",
         "color": "light_blue",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 950", "self.root.winfo_screenheight() - 50"]
     },
     {
         "name": "Jail",
         "position": 10,
-        "type": "corner"
+        "type": "corner",
+        "coordinates": ["self.root.winfo_screenwidth() - 1050", "self.root.winfo_screenheight() - 50"]
     },
     {
         "name": "Just Visiting",
         "position": 10.5,
-        "type": "corner"
+        "type": "corner",
+        "coordinates": ["self.root.winfo_screenwidth() - 1050", "self.root.winfo_screenheight() - 150"]
     },
     {
         "name": "St. Charles Place",
@@ -97,14 +109,16 @@
         "type": "property",
         "color": "pink",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 1050", "self.root.winfo_screenheight() - 250"]
     },
     {
         "name": "Electric Company",
         "position": 12,
         "price": 150,
         "type": "property",
-        "color": "utility"
+        "color": "utility",
+        "coordinates": ["self.root.winfo_screenwidth() - 1050", "self.root.winfo_screenheight() - 350"]
     },
     {
         "name": "States Avenue",
@@ -114,7 +128,8 @@
         "type": "property",
         "color": "pink",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 1050", "self.root.winfo_screenheight() - 450"]
     },
     {
         "name": "Virginia Avenue",
@@ -124,14 +139,16 @@
         "type": "property",
         "color": "pink",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 1050", "self.root.winfo_screenheight() - 550"]
     },
     {
         "name": "Pennsylvania Railroad",
         "position": 15,
         "price": 200,
         "type": "property",
-        "color": "railroad"
+        "color": "railroad",
+        "coordinates": ["self.root.winfo_screenwidth() - 1050", "self.root.winfo_screenheight() - 650"]
     },
     {
         "name": "St. James Place",
@@ -141,12 +158,14 @@
         "type": "property",
         "color": "orange",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 950", "self.root.winfo_screenheight() - 650"]
     },
     {
         "name": "Community Chest",
         "position": 17,
-        "type": "community_chest"
+        "type": "community_chest",
+        "coordinates": ["self.root.winfo_screenwidth() - 850", "self.root.winfo_screenheight() - 650"]
     },
     {
         "name": "Tennessee Avenue",
@@ -156,7 +175,8 @@
         "type": "property",
         "color": "orange",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 750", "self.root.winfo_screenheight() - 650"]
     },
     {
         "name": "New York Avenue",
@@ -166,12 +186,14 @@
         "type": "property",
         "color": "orange",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 650", "self.root.winfo_screenheight() - 650"]
     },
     {
         "name": "Free Parking",
         "position": 20,
-        "type": "corner"
+        "type": "corner",
+        "coordinates": ["self.root.winfo_screenwidth() - 550", "self.root.winfo_screenheight() - 650"]
     },
     {
         "name": "Kentucky Avenue",
@@ -181,12 +203,14 @@
         "type": "property",
         "color": "red",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 450", "self.root.winfo_screenheight() - 650"]
     },
     {
         "name": "Chance",
         "position": 22,
-        "type": "chance"
+        "type": "chance",
+        "coordinates": ["self.root.winfo_screenwidth() - 350", "self.root.winfo_screenheight() - 650"]
     },
     {
         "name": "Indiana Avenue",
@@ -196,7 +220,8 @@
         "type": "property",
         "color": "red",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 250", "self.root.winfo_screenheight() - 650"]
     },
     {
         "name": "Illinois Avenue",
@@ -206,14 +231,16 @@
         "type": "property",
         "color": "red",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 150", "self.root.winfo_screenheight() - 650"]
     },
     {
         "name": "B. & O. Railroad",
         "position": 25,
         "price": 200,
         "type": "property",
-        "color": "railroad"
+        "color": "railroad",
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() - 650"]
     },
     {
         "name": "Atlantic Avenue",
@@ -223,7 +250,8 @@
         "type": "property",
         "color": "yellow",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() - 550"]
     },
     {
         "name": "Ventnor Avenue",
@@ -233,14 +261,16 @@
         "type": "property",
         "color": "yellow",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() - 450"]
     },
     {
         "name": "Water Works",
         "position": 28,
         "price": 150,
         "type": "property",
-        "color": "utility"
+        "color": "utility",
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() - 350"]
     },
     {
         "name": "Marvin Gardens",
@@ -250,12 +280,14 @@
         "type": "property",
         "color": "yellow",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() - 250"]
     },
     {
         "name": "Go to Jail",
         "position": 30,
-        "type": "corner"
+        "type": "corner",
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() - 150"]
     },
     {
         "name": "Pacific Avenue",
@@ -265,7 +297,8 @@
         "type": "property",
         "color": "green",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() - 50"]
     },
     {
         "name": "North Carolina Avenue",
@@ -275,12 +308,14 @@
         "type": "property",
         "color": "green",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() + 50"]
     },
     {
         "name": "Community Chest",
         "position": 33,
-        "type": "community_chest"
+        "type": "community_chest",
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() + 150"]
     },
     {
         "name": "Pennsylvania Avenue",
@@ -290,19 +325,22 @@
         "type": "property",
         "color": "green",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() + 250"]
     },
     {
         "name": "Short Line Railroad",
         "position": 35,
         "price": 200,
         "type": "property",
-        "color": "railroad"
+        "color": "railroad",
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() + 350"]
     },
     {
         "name": "Chance",
         "position": 36,
-        "type": "chance"
+        "type": "chance",
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() + 450"]
     },
     {
         "name": "Park Place",
@@ -312,13 +350,15 @@
         "type": "property",
         "color": "blue",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() + 550"]
     },
     {
         "name": "Luxury Tax",
         "position": 38,
         "type": "tax",
-        "tax_amount": 75
+        "tax_amount": 75,
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() + 650"]
     },
     {
         "name": "Boardwalk",
@@ -328,6 +368,7 @@
         "type": "property",
         "color": "blue",
         "houses": 0,
-        "hotel": false
+        "hotel": false,
+        "coordinates": ["self.root.winfo_screenwidth() - 50", "self.root.winfo_screenheight() + 750"]
     }
 ]
