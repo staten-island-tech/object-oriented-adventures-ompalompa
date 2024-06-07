@@ -1,9 +1,9 @@
 import tkinter as tk
 from PIL import Image, ImageTk
-import random, time, json
+import random, json
 
 class TkinterLb:
-    def __init__(self, root, image_path, board_data_path, chance_data_path, chest_data_path, player_interface):
+    def __init__(self, root, image_path, board_data_path, chance_data_path, chest_data_path):
         self.root = root
         self.image_path = image_path
         self.history = []
@@ -16,17 +16,13 @@ class TkinterLb:
             self.chance_data = json.load(file)
         with open(chest_data_path, encoding="utf8") as file:
             self.chest_data = json.load(file)
-        self.player_data = [{"name": "Player", "position": 0},
-                            {"name": "Bot 1", "position": 0},
-                            {"name": "Bot 2", "position": 0},
-                            {"name": "Bot 3", "position": 0}]
+        self.player_data = [
+            {"name": "Player", "position": 0},
+            {"name": "Bot 1", "position": 0},
+            {"name": "Bot 2", "position": 0},
+            {"name": "Bot 3", "position": 0}
+        ]
         self.balances = [{"name": player["name"], "balance": 1500} for player in self.player_data]
-        self.player_interface = player_interface
-
-    def update_player_positions(self):
-        for player in self.player_data:
-            position = player['position']
-            self.player_interface.update_token_position(player['name'], position)
 
     def clear_screen(self):
         for widget in self.root.winfo_children():
@@ -96,7 +92,7 @@ class TkinterLb:
                     roll_text = f"{player} rolled: {total_roll}"
                     self.canvas.create_text(window_width / 2, initial_y, text=roll_text, font=("Comic Sans MS", 20), fill="white")
                     initial_y += 50
-                self.root.after(2000, lambda: None) 
+                self.root.after(2000, lambda: None)
                 return [player for player, _ in rolls_sorted]
 
             rolls = roll_dice_for_players(players)
@@ -105,22 +101,15 @@ class TkinterLb:
 
             self.canvas.create_text(window_width / 2, window_height // 2 + 100, text=f"Order: {', '.join(self.playerorder)}", font=("Comic Sans MS", 20), fill="white")
             self.makebutton("Back", button_font, window_width / 2, window_height / 2 + 160, command=self.buttonscreen)
-    
+
     def diceroll(self):
         if not self.playerorder:
             return
 
-        current_player = self.playerorder[0]
-        if current_player in ["Bot 1", "Bot 2", "Bot 3"]:
-            self.bot_roll()
-            return
+        current_player = self.playerorder.pop(0)  
+        self.playerorder.append(current_player)  
 
-        self.clear_screen()
-        self.setup_screen()
-        button_font = ("Comic Sans MS", 20, "bold")
-        window_height = self.root.winfo_screenheight()
-        window_width = self.root.winfo_screenwidth() - window_height
-
+        import random
         roll1 = random.randint(1, 6)
         roll2 = random.randint(1, 6)
         total_roll = roll1 + roll2
@@ -131,8 +120,7 @@ class TkinterLb:
                 current_position = player_info['position']
                 break
 
-        new_position = (current_position + total_roll) % 40  # This calculation should be fine
-
+        new_position = (current_position + total_roll) % 40
         for player_info in self.player_data:
             if player_info['name'] == current_player:
                 player_info['position'] = new_position
@@ -144,6 +132,7 @@ class TkinterLb:
                 new_location = location['name']
                 break
 
+
         special_action = ""
         if new_location:
             location_info = next((loc for loc in self.board_data if loc['name'] == new_location), None)
@@ -154,19 +143,22 @@ class TkinterLb:
                     self.communitychest()
                     return
                 elif location_info['type'] == 'chance':
-                    special_action = "Draw from Chance"
+                    self.chance()
+                    return
                 elif location_info['type'] == 'tax':
                     tax_amount = location_info.get('tax_amount', 0)
                     self.pay_tax(current_player, tax_amount)
                     special_action = f"Pay ${tax_amount} in taxes"
 
-        roll_text = f"{current_player} rolled: {roll1} + {roll2} = {total_roll}"
-        new_pos_text = f"{current_player}'s new position: {new_location} ({new_position})"
-        action_text = f"Action: {special_action}"
+        self.clear_screen()
+        self.setup_screen()
+        button_font = ("Comic Sans MS", 20, "bold")
+        window_height = self.root.winfo_screenheight()
+        window_width = self.root.winfo_screenwidth() - window_height
 
-        self.canvas.create_text(window_width / 2, window_height / 2 - 100, text=roll_text, font=("Comic Sans MS", 20), fill="white")
-        self.canvas.create_text(window_width / 2, window_height / 2, text=new_pos_text, font=("Comic Sans MS", 20), fill="white")
-        self.canvas.create_text(window_width / 2, window_height / 2 + 100, text=action_text, font=("Comic Sans MS", 20), fill="white")
+        self.canvas.create_text(window_width / 2, window_height / 2 - 100, text=f"{current_player} rolled: {roll1} + {roll2} = {total_roll}", font=("Comic Sans MS", 20), fill="white")
+        self.canvas.create_text(window_width / 2, window_height / 2, text=f"{current_player}'s new position: {new_location} ({new_position})", font=("Comic Sans MS", 20), fill="white")
+        self.canvas.create_text(window_width / 2, window_height / 2 + 100, text=f"Action: {special_action}", font=("Comic Sans MS", 20), fill="white")
         self.makebutton("Back", button_font, window_width / 2, window_height / 2 + 200, command=self.buttonscreen)
 
     def pay_tax(self, player_name, tax_amount):
@@ -174,7 +166,6 @@ class TkinterLb:
             if player['name'] == player_name:
                 player['balance'] -= tax_amount
                 break
-
 
     def show_balances_properties(self):
         self.clear_screen()
