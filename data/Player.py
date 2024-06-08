@@ -9,7 +9,7 @@ def slowprint(s):
 		sys.stdout.write(c)
 		sys.stdout.flush()
 		time.sleep(1./10)
-
+contestants = 0
 class Playeroptions:
     def __init__(self, name, data_path, character=None):
         self.name = name
@@ -17,6 +17,7 @@ class Playeroptions:
         self.balance = 1500 
         self.properties = []
         self.location = 0
+        self.intro_roll_dice = intro_roll_dice
         with open(data_path, encoding="utf8") as file:
           self.data = json.load(file)
           
@@ -35,6 +36,11 @@ class Playeroptions:
             print(f"You sold {property} for ${price}.")
         else:
             print("You don't own this.")
+
+    def currentbalance(self, balance)
+        return self.balance
+
+
 
     def pay_fine(self):
         if self.balance >= 50:
@@ -62,6 +68,7 @@ class Playeroptions:
         slowprint(print)
         slowprint(f"Did you roll a {max(e)}, guess what you get to go first! Turn order is in the order of the greatest number rolled to the least!")
         o = sorted(e)
+
     def roll_dice(self):
         x = random.randint(1, 6)
         y = random.randint(1, 6)
@@ -97,16 +104,13 @@ class Playeroptions:
             if property + self.balance >= 0:
                 print(f"Your current balance is {balance}. You must sell a portion of your property to remain in the game.")
             elif property + self.balance <= 0:
-                print(f"Your current balance is {balance}. Selling all your property will only get you to a balance of {self.networth}. You are eliminated from the game.")
+                print(f"Your  balance is {balance}. Selling all your property will only get you to a balance of {self.networth}. You are eliminated from the game.")
                 if self.mode == 'multiplayer':
-                    print(f"There are now {contestants} left in the game.")
-                elif self.mode == 'singleplayer':
-                    print(f"There are {contestants} left in the game. The game will now end.")
+                    
 
 slowprint("Welcome to Monopoly! Lets have some Fun!")
 characters = []
 Add = True
-contestants = 0
 while Add == True:
     slowprint("Who's playing?")
     newplayer = input(":")
