@@ -7,29 +7,63 @@ import sys
 def slowprint(s):
 	for c in s + '\n':
 		sys.stdout.write(c)
-		sys.stdout.flush()
+		sys.stdout.flush() 
 		time.sleep(1./10)
 contestants = 0
+
+"Meditterranean Avenue" = False
+"Baltic Avenue" = False
+"Reading Railroad" = False
+"Oriental Avenue" = False
+"Vermont Avenue" = False
+"Connecticut Avenue" = False
+"St. Charles Place" = False
+"Electric Company" = False
+"States Avenue" = False
+"Virginia Avenue" = False
+"Pennsylvania Railroad" = False
+"St. James Place" = False
+"Tennessee Avenue" = False
+"New York Avenue" = False
+"Kentucky Avenue" = False
+"Indiana Avenue" = False
+"Illinois Avenue" = False
+"B. & O. Railroad" = False
+"Atlantic Avenue" = False
+"Ventnor Avenue" = False
+"Water Works" = False
+"Marvin Gardens" = False
+"Pacific Avenue" = False
+"North Carolina Avenue" = False
+"Pennysylvania Avenue" = False
+"Short Line Railroad" = False
+"Park Place" = False
+"Boardwalk" = False
+
 class Playeroptions:
     def __init__(self, name, data_path, character=None):
         self.name = name
         self.character = character
         self.balance = 1500 
         self.properties = []
+        self.monopolies = []
         self.location = 0
+        self.Getoutofjailfree = False
         self.intro_roll_dice = intro_roll_dice
+        self.turns = 0
         with open(data_path, encoding="utf8") as file:
           self.data = json.load(file)
           
-    def buy_property(self, property, price):
-        if self.balance >= price:
-            self.properties.append(property)
-            self.balance -= price
-            print(f"You bought {property} for ${price}.")
-        else:
-            print("Not enough money")
+    def buy_property(self, property):
+        if self.location = property["position"]:
+            if self.balance >= property["price"]:
+                self.properties.append(property)
+                self.balance -= property["price"]
+                print(f"You bought {property} for ${price}.")
+            else:
+                print("You dont have enough money")
 
-    def sell_property(self, property, price):
+    def sell_property(self, property):
         if property in self.properties:
             self.properties.remove(property)
             self.balance += price
@@ -37,26 +71,30 @@ class Playeroptions:
         else:
             print("You don't own this.")
 
-    def currentbalance(self, balance)
+    def morgage(self, property):
+        slowprint(f"You have morgaged {property["name"]}, you can no longer collect rent from the property.")
+        self.balance += property["morgage"]
+        slowprint(f"You received {property["morgage"]}, pay this back to the bank with 10% interest to restore your property.")
+        property["name"] = "morgage"
+
+    def paymorgage(self,property)
+        self.balance -= property["morgage"] * 1.1
+        property["name"] = True
+        slowprint("This property has been restored, you can now collect rent from it again!")
+
+    def currentbalance(self, balance):
         return self.balance
 
+    def random(self,group):
+        e = []
+        for i in group:
+            x = random.choice(group)
+            group.remove(x)
+            e.append(x)
+            slowprint("The following order of players randomly generated will apply throughout the game!")
+        return e
 
-
-    def pay_fine(self):
-        if self.balance >= 50:
-            self.balance -= 50
-            self.in_jail = False
-            self.turns_in_jail = 0
-            print(f"You paid $50 as fine and have been released.")
-        else:
-            print("Not enough money.")
-
-    def pay_rent(self, rentprice):
-        if self.balance >= rentprice:
-            self.balance -= rentprice
-            print(f"You paid ${rentprice} for rent")
-
-    def intro_roll_dice(self,characterss):
+    """def intro_roll_dice(self,characterss):
         e = []
         for x in characterss:
             y = random.randint(1,6)
@@ -64,16 +102,28 @@ class Playeroptions:
             a = y + z
             x.number = a
             e.append(x.number)
-        print = (f"{x} rolled a!")
-        slowprint(print)
+            time.sleep(1)
+            print = (f"{x} rolled a!")
+            slowprint(print)
+            self.intro_roll_dice = a
         slowprint(f"Did you roll a {max(e)}, guess what you get to go first! Turn order is in the order of the greatest number rolled to the least!")
         o = sorted(e)
+        p = []
+        for i in o:
+            p.append"""
+
 
     def roll_dice(self):
         x = random.randint(1, 6)
         y = random.randint(1, 6)
         z = x + y
         self.location += z
+        if self.location > 37:
+            q = 0
+            while self.location > 37:
+                self.location -= 1
+                q += 1
+            self.location = q - 1
 
         new_location = None
         for location in self.data:
@@ -81,32 +131,11 @@ class Playeroptions:
                 new_location = location['name']
                 break
 
-        print("\nYou rolled...")
+        slowprint("\nYou rolled...")
         time.sleep(2)
-        print(f"First roll: {x}")
-        print(f"Second roll: {y}")
-        print(f"Your new location is {new_location}")
-
-    def income_tax(self):
-        landed = True
-        while landed == True:
-            print("Do you want to pay a fine of $200, or pay 10% of your total networth?")
-            choices = int(input("Choices: 1 ($200), or 2 (10%): "))
-            if choices == '1':
-                self.balance - 200
-                print(f"Your current balance is ${self.balance}")
-            if choices == '2':
-                self.balance = (self.balance)*0.9
-                print(f"Your current balance is ${self.balance}")
-    def bankruptcy(self, balance, mode):
-        self.networth = self.balance + self.property
-        while self.balance <= 0:
-            if property + self.balance >= 0:
-                print(f"Your current balance is {balance}. You must sell a portion of your property to remain in the game.")
-            elif property + self.balance <= 0:
-                print(f"Your  balance is {balance}. Selling all your property will only get you to a balance of {self.networth}. You are eliminated from the game.")
-                if self.mode == 'multiplayer':
-                    
+        slowprint(f"First roll: {x}")
+        slowprint(f"Second roll: {y}")
+        slowprint(f"Your new location is {new_location}")
 
 slowprint("Welcome to Monopoly! Lets have some Fun!")
 characters = []
@@ -115,9 +144,17 @@ while Add == True:
     slowprint("Who's playing?")
     newplayer = input(":")
     characters.append(newplayer)
-    slowprint("Would you like to add more players? Y/N")
-    more = input(":")
+    more = slowprint(input("Would you like to add more players? Y/N: "))
     if more == N:
         Add = False
+w = contestants
 player = Playeroptions("Player 1","./monopolyboard.json")
-player.intro_roll_dice
+player.random(w)
+time.sleep(2)
+slowprint("The Game will now begin")
+c = 0 
+for x in contestants:
+    c += 1
+    ran = 
+    o[c]
+
