@@ -11,7 +11,7 @@ def slowprint(s):
 		time.sleep(1./10)
 contestants = 0
 
-"Meditterranean Avenue" = False
+""""Meditterranean Avenue" = False
 "Baltic Avenue" = False
 "Reading Railroad" = False
 "Oriental Avenue" = False
@@ -38,8 +38,8 @@ contestants = 0
 "Pennysylvania Avenue" = False
 "Short Line Railroad" = False
 "Park Place" = False
-"Boardwalk" = False
-
+"Boardwalk" = False"""
+owned = []
 class Playeroptions:
     def __init__(self, name, data_path, character=None):
         self.name = name
@@ -49,19 +49,22 @@ class Playeroptions:
         self.monopolies = []
         self.location = 0
         self.Getoutofjailfree = False
-        self.intro_roll_dice = intro_roll_dice
         self.turns = 0
         with open(data_path, encoding="utf8") as file:
-          self.data = json.load(file)
+            self.data = json.load(file)
           
     def buy_property(self, property):
-        if self.location = property["position"]:
-            if self.balance >= property["price"]:
-                self.properties.append(property)
-                self.balance -= property["price"]
-                print(f"You bought {property} for ${price}.")
-            else:
-                print("You dont have enough money")
+        if self.location == property["position"]:
+            if property not in owned:
+                if self.balance >= property["price"]:
+                    self.properties.append(property)
+                    owned.append(property) 
+                    self.balance -= property["price"]
+                    print(f"You bought {property} for ${price}.")
+                else:
+                    print("You dont have enough money")
+            elif property in owned:
+                slowprint("This property is already owned,")
 
     def sell_property(self, property):
         if property in self.properties:
@@ -91,7 +94,7 @@ class Playeroptions:
             x = random.choice(group)
             group.remove(x)
             e.append(x)
-            slowprint("The following order of players randomly generated will apply throughout the game!")
+        slowprint("The following order of players randomly generated will apply throughout the game!")
         return e
 
     """def intro_roll_dice(self,characterss):
@@ -113,12 +116,18 @@ class Playeroptions:
             p.append"""
 
 
-    def roll_dice(self):
+    def roll_dice(self,name):
         x = random.randint(1, 6)
         y = random.randint(1, 6)
         z = x + y
         self.location += z
         if self.location > 37:
+            if self.location = 38:
+                self.balance += 200
+                slowprint(f"For reaching GO you received $200, your current balance is ${self.balance}.")
+            if self.location > 38:
+                self.balance += 200
+                slowprint(f'For passing GO you received $200, your current balance is ${self.balance}.')
             q = 0
             while self.location > 37:
                 self.location -= 1
@@ -135,26 +144,4 @@ class Playeroptions:
         time.sleep(2)
         slowprint(f"First roll: {x}")
         slowprint(f"Second roll: {y}")
-        slowprint(f"Your new location is {new_location}")
-
-slowprint("Welcome to Monopoly! Lets have some Fun!")
-characters = []
-Add = True
-while Add == True:
-    slowprint("Who's playing?")
-    newplayer = input(":")
-    characters.append(newplayer)
-    more = slowprint(input("Would you like to add more players? Y/N: "))
-    if more == N:
-        Add = False
-w = contestants
-player = Playeroptions("Player 1","./monopolyboard.json")
-player.random(w)
-time.sleep(2)
-slowprint("The Game will now begin")
-c = 0 
-for x in contestants:
-    c += 1
-    ran = 
-    o[c]
-
+        slowprint(f"{self.name}location is {new_location}.")
