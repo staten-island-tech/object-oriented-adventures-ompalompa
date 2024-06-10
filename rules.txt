@@ -48,5 +48,5 @@ The game continues until all players except one are bankrupt. The remaining play
 
 Important Points
 - No Loans: Players cannot loan money to other players.
-- Auctions: If a player chooses not to buy a property, it is auctioned to the highest bidder.
+- Auctions: If a player chooses not to buy a property, it is auctined to the highest bidder.
 - Bank: The bank handles all transactions, including property purchases, taxes, and jail fees.
