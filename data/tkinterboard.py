@@ -9,7 +9,7 @@ class TkinterBoard:
         self.token_images = []
         self.properties = []
         self.balance = 1500
-        playsound('data/monopoly.mp3')
+        """playsound('data/monopoly.mp3')"""
 
     def clear_screen(self):
         for widget in self.root.winfo_children():
@@ -206,12 +206,12 @@ class TkinterBoard:
 
     def nametoken(self):
         self.user=self.username.get()
-        print(self.user)
+        with open("user_info.txt", "w") as file:
+            file.write(f"Username: {self.user}\n")
         self.tokencharacter()
 
     def tokentoken(self, token):
         self.token = token
-        print(f"{token}")
         self.confirmscreen(None)
         self.playertoken = self.token
         

@@ -16,8 +16,11 @@ class TkinterLb:
             self.chance_data = json.load(file)
         with open(chest_data_path, encoding="utf8") as file:
             self.chest_data = json.load(file)
+        with open("user_info.txt", "r") as file:
+            lines = file.readlines()
+            self.username = lines[0].strip().split(": ")[1] 
         self.player_data = [
-            {"name": "Player", "position": 0},
+            {"name": self.username, "position": 0},
             {"name": "Bot 1", "position": 0},
             {"name": "Bot 2", "position": 0},
             {"name": "Bot 3", "position": 0}
@@ -72,7 +75,7 @@ class TkinterLb:
             window_width = self.root.winfo_screenwidth() - window_height
             self.canvas.create_text(window_width / 2, window_height / 10, text="Controller", font=("Comic Sans MS", 80, "bold"), fill="white")
 
-            players = ["Player", "Bot 1", "Bot 2", "Bot 3"]
+            players = [self.username, "Bot 1", "Bot 2", "Bot 3"]
 
             def roll_dice_for_players(players_list):
                 rolls = []
