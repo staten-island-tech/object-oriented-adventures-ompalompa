@@ -1,6 +1,6 @@
 import tkinter as tk
 from PIL import Image, ImageTk
-from playsound import playsound
+"from playsound import playsound"
 
 class TkinterBoard:
     def __init__(self, root, image_path):
