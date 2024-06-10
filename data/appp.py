@@ -16,7 +16,7 @@ while Add == True:
     characters.append(newplayer)
     contestants += 1
     more = slowprint(input("Would you like to add more players? Y/N: "))
-    if more == N:
+    if more == 'N':
         Add = False
 player = Playeroptions("Player 1","./monopolyboard.json")
 order = player.random(characters)
@@ -27,7 +27,7 @@ time.sleep(2)
 slowprint("The Game will now begin!")
 for x in order:
     x = Game(x,"./monopolyboard.json")
-while victory = False:
+while victory == False:
     if len(contestants) == 1:
         Game = Game("Player 1", "./monopolyboard.json")
         Game.victory(contestants)
