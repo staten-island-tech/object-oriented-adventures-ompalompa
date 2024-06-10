@@ -11,7 +11,7 @@ victory = False
 slowprint("Welcome to Monopoly! Lets have some Fun!")
 characters = []
 Add = True
-while Addd == True:
+while Add == True:
     newplayer = slowprint(input("Who's playing?:"))
     characters.append(newplayer)
     contestants += 1
@@ -29,6 +29,7 @@ for x in order:
     x = Game(x,"./monopolyboard.json")
 while victory = False:
     if len(contestants) == 1:
+        Game = Game("Player 1", "./monopolyboard.json")
         Game.victory(contestants)
     o = 0
     for i in order:
